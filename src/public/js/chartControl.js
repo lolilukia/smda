@@ -8,6 +8,7 @@ function cdistribution() {
   document.getElementById("brand_table").style.display="none";
   document.getElementById("PieCanvas").style.display="inline-block";
   document.getElementById("svgChart").style.display="inline-block";
+  document.getElementById("tableCanvas").style.display="inline-block";
 
 }
 
@@ -17,6 +18,7 @@ function bdistribution() {
   document.getElementById("brand_table").style.display="inline-block";
   document.getElementById("PieCanvas").style.display="none";
   document.getElementById("svgChart").style.display="none";
+  document.getElementById("tableCanvas").style.display="none";
 
 }
 
