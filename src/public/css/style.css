@@ -1,0 +1,134 @@
+body{
+  background-color: #eeeeee;
+}
+*{
+  margin: 0px;
+  padding:0px;
+}
+.topbody{
+  width: 70%;
+  margin: 0 auto;
+}
+.topbar{
+  width:100%;
+  background-color: #7761a7;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.title{
+  font-weight: 600;
+  font-size: 24px;
+}
+.topbar li{
+  float:left;
+}
+.toplist{
+  display: inline-block;
+  list-style-type:none;
+}
+.toplist a{
+  color:#FFF;
+  text-decoration: none;
+}
+.title,.toplist a{
+  display: block;
+  float: left;
+}
+.username{
+  color: white;
+  display: block;
+  float: right;
+  position: relative;
+}
+.username, .toplist a{
+  padding: 20px;
+}
+.title{
+  color:#FFF;
+  text-decoration: none;
+  padding: 15px 30px 15px 30px;
+}
+.contain{
+  position: absolute;
+  right: 15%;
+  top: 68px;
+  width: 6%;
+  height: 120px;
+  background-color: white;
+  border: #dddddd solid 1px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.contain a{
+  text-decoration: none;
+  outline: 0 none;
+  color: #333333;
+}
+.downlist{
+  list-style: none;
+}
+.downlist li{
+  padding: 12px 25px;
+}
+.triangle{
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #dddddd;
+}
+.container1{
+  width: 62%;
+  height: 600px;
+  margin: 0 auto;
+}
+.nav_tabs{
+  background-color: #eeeeee;
+  list-style: none;
+  padding: 10px 0;
+  display: table;
+  content: "";
+  display: inline-block;
+  vertical-align: top;
+}
+.nav_tabs a{
+  text-decoration: none;
+  outline: 0 none;
+}
+.nav_tabs li{
+  padding: 20px 10px;
+}
+.active{
+  background-color: #7761a7;
+}
+.active a{
+  color: white;
+}
+.tab_content{
+  overflow: auto;
+  width: 60%;
+  height: 600px;
+  background-color: white;
+}
+#myBarChart{
+  width: 800px !important;
+  height: 400px !important;
+}
+.canvas_contain{
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  padding: 2% 7% 10% 7%;
+}
+svg {
+  font-family: "Helvetica Neue", Helvetica;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}

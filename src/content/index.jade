@@ -1,22 +1,46 @@
----
-title: React.js Starter Kit
-component: ContentPage
----
-div
-  div
-    h3 Runtime Components
-    dl
-      dt <a href="https://facebook.github.io/react/">React</a>
-      dd A JavaScript library for building user interfaces, developed by Facebook
-      dt <a href="http://facebook.github.io/flux/">Flux</a>
-      dd Application architecture for building user interfaces
-  div
-    h3 Development Tools
-    dl
-      dt <a href="http://webpack.github.io/">Webpack</a>
-      dd Compiles front-end source code into modules / bundles
-      dt <a href="http://www.browsersync.io/">BrowserSync</a>
-      dd A lightweight HTTP server for development
-  div
-    h3 Fork me on GitHub
-    p <a href="https://github.com/kriasoft/react-starter-kit">github.com/kriasoft/react-starter-kit</a>
+doctype html
+html(class="no-js", lang="")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    title= title
+    meta(name="description", description=description)
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" type="text/css" href="css/style.css")
+    script(src = "lib/Chart.js")
+    script(src="lib/d3.min.js")
+    script(src="js/dynamic.js")
+  body
+    .topbar
+      .topbody
+        a.title SMDA
+        ul.toplist
+          li
+            a 未来趋势
+          li
+            a 历史数据
+        a.username Jane Smith
+      .contain
+        .triangle
+        ul.downlist
+          li
+            a 我的账号
+          li
+            a 联系我们
+          li
+            a 退出登录
+    .container1
+      ul.nav_tabs
+        li.active
+          a 销售趋势
+        li
+          a 类目趋势
+        li
+          a 类目分布
+        li
+          a 品牌分布
+      .canvas_contain
+        canvas#myBarChart
+    script(src="js/barChart.js")
+
+

@@ -98,7 +98,7 @@ server.get('*', async (req, res, next) => {
 
     await Router.dispatch({ path: req.path, query: req.query, context }, (state, component) => {
       data.body = ReactDOM.renderToString(component);
-      data.css = css.join('');
+      data.css = css.join();
     });
 
     res.status(statusCode);

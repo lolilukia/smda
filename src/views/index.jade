@@ -6,13 +6,41 @@ html(class="no-js", lang="")
     title= title
     meta(name="description", description=description)
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    link(rel="apple-touch-icon", href="apple-touch-icon.png")
-    style#css!= css
+    link(rel="stylesheet" type="text/css" href="css/style.css")
+    script(src = "lib/Chart.js")
+    script(src="lib/d3.min.js")
+    script(src="js/dynamic.js")
   body
-    #app!= body
-    script(src=entry)
-    script.
-      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-      ga('create','#{trackingId}','auto');ga('send','pageview')
-    if trackingId
-      script(src="https://www.google-analytics.com/analytics.js", async=true, defer=true)
+    .topbar
+      .topbody
+        a.title SMDA
+        ul.toplist
+          li
+            a 未来趋势
+          li
+            a 历史数据
+        a.username Jane Smith
+      .contain
+        .triangle
+        ul.downlist
+          li
+            a 我的账号
+          li
+            a 联系我们
+          li
+            a 退出登录
+    .container1
+      ul.nav_tabs
+        li.active
+          a 销售趋势
+        li
+          a 类目趋势
+        li
+          a 类目分布
+        li
+          a 品牌分布
+      .canvas_contain
+        canvas#myBarChart
+    script(src="js/barChart.js")
+
+
