@@ -78,21 +78,21 @@ body{
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 10px solid #dddddd;
+  border-bottom: 10px solid #fff;
 }
 .container1{
-  width: 62%;
+  width: 58%;
   height: 600px;
   margin: 0 auto;
 }
 .nav_tabs{
-  background-color: #eeeeee;
   list-style: none;
   padding: 10px 0;
   display: table;
   content: "";
   display: inline-block;
   vertical-align: top;
+  background-color: #eeeeee;
 }
 .nav_tabs a{
   text-decoration: none;
@@ -103,9 +103,10 @@ body{
 }
 .active{
   background-color: #7761a7;
+  color: #ffffff;
 }
-.active a{
-  color: white;
+.normal{
+  color: #7761a7;
 }
 .tab_content{
   overflow: auto;
@@ -114,17 +115,25 @@ body{
   background-color: white;
 }
 #myBarChart{
-  width: 800px !important;
-  height: 400px !important;
+  width: 580px;
+  height: 290px;
 }
-.canvas_contain{
+#svg_contain,.canvas_contain{
   display: inline-block;
   vertical-align: top;
   background-color: white;
   padding: 2% 7% 10% 7%;
+  margin-bottom: 20px;
+  float: right;
+}
+#svg_contain{
+  margin: 0 auto;
+  width: 74%;
 }
 svg {
   font-family: "Helvetica Neue", Helvetica;
+  width: 580px;
+  height: 290px;
 }
 
 .line {
