@@ -1,9 +1,5 @@
 //Add dataTable Functions
 var functions = $('<div class="btn-group"><button class="btn btn-default btn-xs" type="button">Actions</button><button data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle" type="button"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button><ul role="menu" class="dropdown-menu"><li><a href="#">Edit</a></li><li><a href="#">Copy</a></li><li><a href="#">Details</a></li><li class="divider"></li><li><a href="#">Remove</a></li></ul></div>');
-$("#datatable tbody tr td:last-child").each(function(){
-  $(this).html("");
-  functions.clone().appendTo(this);
-});
 
 $(document).ready(function(){
   //initialize the javascript
@@ -34,6 +30,23 @@ $(document).ready(function(){
 
   /* Apply the jEditable handlers to the table */
   aTable.$('td').editable( 'js/jquery.datatables/examples/examples_support/editable_ajax.php', {
+    "callback": function( sValue, y ) {
+      var aPos = aTable.fnGetPosition( this );
+      aTable.fnUpdate( sValue, aPos[0], aPos[1] );
+    },
+    "submitdata": function ( value, settings ) {
+      return {
+        "row_id": this.parentNode.getAttribute('id'),
+        "column": aTable.fnGetPosition( this )[2]
+      };
+    },
+    "height": "14px",
+  });
+  /* Init DataTables */
+  var bTable = $('#datatable4').dataTable();
+
+  /* Apply the jEditable handlers to the table */
+  bTable.$('td').editable( 'js/jquery.datatables/examples/examples_support/editable_ajax.php', {
     "callback": function( sValue, y ) {
       var aPos = aTable.fnGetPosition( this );
       aTable.fnUpdate( sValue, aPos[0], aPos[1] );

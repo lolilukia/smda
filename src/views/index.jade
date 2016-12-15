@@ -12,9 +12,9 @@ html(class="no-js", lang="")
     link(rel="stylesheet" ,type="text/css" ,href="css/datatables.css")
     link(rel="stylesheet" ,type="text/css" ,href="css/datatable.css")
     link(rel="stylesheet" ,type="text/css" ,href="css/tablestyle.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/timeSelect.css")
     script(src = "lib/Chart.js")
-
-
+    script(src = "lib/jquery.js")
     script(src="js/chartControl.js")
 
   body
@@ -40,59 +40,101 @@ html(class="no-js", lang="")
                 a 退出登录
 
     .container1
-      ul.nav_tabs
-        li(id='tag1',class='active') 销售趋势
-        li(id='tag2',class='normal') 类目趋势
-        li(id='tag3',class='normal',onclick='cdistribution()') 类目分布
-        li(id='tag4',class='normal',onclick='bdistribution()') 品牌分布
-      div(class='canvas_contain',id='barCanvas',style='display:inline-block')
-        canvas#myBarChart
-      div(class='canvas_contain2',id='Dchart',style='display:inline-block')
-        #svg_contain
-      div(class='canvas_contain',id='svgChart',style='display:none')
-        form
-          label
-            input(type="radio", name="mode", value="grouped")
-            | Grouped
-          label
-            input(type="radio", name="mode", value="stacked", checked)
-            | Stacked
-        .twoChart
-          svg(width="800" height="400")
-      div(class='canvas_contain2',id='PieCanvas',style='display:none')
-        .twoChart
-          .twoChart1
-            canvas#myPieChart
-          .twoChart2
-            .row
-              .col-md-12
-                .block-flat
-                  .header
-                    h3 类目排行
+      .contain_group
+        ul.nav_tabs
+          li(id='tag1',class='active') 销售趋势
+          li(id='tag2',class='normal') 类目趋势
+          li(id='tag3',class='normal',onclick='cdistribution()') 类目分布
+          li(id='tag4',class='normal',onclick='bdistribution()') 品牌分布
+        div(class='canvas_contain',id='barCanvas',style='display:inline-block')
+          .contain_title
+            span 品牌销售额
+          label#yearSelect
+            select#selection
+              option(value="2012") 2012
+              option(value="2012") 2013
+              option(value="2012") 2014
+              option(value="2012") 2015
+              option(value="2012") 2016
+          canvas#myBarChart
+        div(class='canvas_contain2',id='Dchart',style='display:inline-block')
+          .contain_title
+            span 品牌占比情况
+          #svg_contain
+        div(class='table_contain2',id='brand_table',style='display:inline-block')
+          .row
+            .col-md-12
+              .block-flat
+                .header
+                  h3 品牌排行
 
-                  .content
-                    .table-responsive
-                      table(class=['table', 'table-bordered'],id='datatable3')
-                        thead
-                          tr
-                            th 类目
-                            th 销售额
-                            th 占比
-                        tbody
-                          tr(class=["odd", "gradeX"])
-                            td Trident
-                            td Internet Explorer 4.0
-                            td Win 95+
+                .content
+                  .table-responsive
+                    table(class=['table', 'table-bordered'],id='datatable4')
+                      thead
+                        tr
+                          th 类目
+                          th 销售额
+                          th 占比
+                      tbody
+                        tr(class=["odd", "gradeX"])
+                          td Trident
+                          td Internet Explorer 4.0
+                          td Win 95+
 
-                          tr(class=['even', 'gradeC'])
-                            td Trident
-                            td Internet Explorer 5.0
-                            td Win 95+
+                        tr(class=['even', 'gradeC'])
+                          td Trident
+                          td Internet Explorer 5.0
+                          td Win 95+
 
-                          tr(class=["odd", "gradeA"])
-                            td Trident</td>
-                            td Internet Explorer 5.5</td>
-                            td Win 95+</td>
+                        tr(class=["odd", "gradeA"])
+                          td Trident</td>
+                          td Internet Explorer 5.5</td>
+                          td Win 95+</td>
+        div(class='canvas_contain',id='svgChart',style='display:none')
+          form
+            label
+              input(type="radio", name="mode", value="grouped")
+              | Grouped
+            label
+              input(type="radio", name="mode", value="stacked", checked)
+              | Stacked
+          .twoChart
+            svg(width="800" height="400")
+        div(class='canvas_contain2',id='PieCanvas',style='display:none')
+          .twoChart
+            .twoChart1
+              canvas#myPieChart
+            .twoChart2
+              .row
+                .col-md-12
+                  .block-flat
+                    .header
+                      h3 类目排行
+
+                    .content
+                      .table-responsive
+                        table(class=['table', 'table-bordered'],id='datatable3')
+                          thead
+                            tr
+                              th 类目
+                              th 销售额
+                              th 占比
+                          tbody
+                            tr(class=["odd", "gradeX"])
+                              td Trident
+                              td Internet Explorer 4.0
+                              td Win 95+
+
+                            tr(class=['even', 'gradeC'])
+                              td Trident
+                              td Internet Explorer 5.0
+                              td Win 95+
+
+                            tr(class=["odd", "gradeA"])
+                              td Trident</td>
+                              td Internet Explorer 5.5</td>
+                              td Win 95+</td>
 
 
 
@@ -108,39 +150,10 @@ html(class="no-js", lang="")
       script(src="lib/jquery.datatables.min.js")
       script(src="lib/datatables.js")
       script(src="js/datatable.js")
-      script(src = "lib/jquery.js")
       script(src="lib/d3.min.js")
       script(src="js/dynamic.js")
-    script.
-      lastClick = 'tag1';
-      currentClick = 'tag1';
-      $(document).ready(function() {
-        var width = document.body.clientWidth;
-        var height = document.body.clientHeight;
-        $('#myBarChart').css('width', width/2.335 + 'px');
-        $('#myBarChart').css('height', width/4.67 + 'px');
-        $('svg').css('width', width/2.335 + 'px');
-        $('svg').css('height', width/4.67 + 'px');
-          if(width > 1600){
-            $('.contain').css('width', '6%');
-          }
-        else{
-          $('.contain').css('width', '8%');
-          $('.contain').css('font-size', '12px');
-        }
-        $(".nav_tabs").children('li').click(function(){
-          console.log(this.id);
-          var string = this.id;
-          if(string == lastClick)
-            return;
-          else{
-              currentClick = string;
-              $('#'+lastClick).toggleClass('active normal');
-              $('#'+currentClick).toggleClass('normal active');
-              lastClick = currentClick;
-          }
-        });
-      });
+      script(src="js/click.js")
+
 
 
 
