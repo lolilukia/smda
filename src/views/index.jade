@@ -7,39 +7,110 @@ html(class="no-js", lang="")
     meta(name="description", description=description)
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(rel="stylesheet" type="text/css" href="css/style.css")
-    script(src = "lib/jquery.js")
+    link(rel="stylesheet" type="text/css" href="css/MutiBarChart.css")
+    link(href="lib/bootstrap.css",rel="stylesheet")
+    link(rel="stylesheet" ,type="text/css" ,href="css/datatables.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/datatable.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/tablestyle.css")
     script(src = "lib/Chart.js")
-    script(src="lib/d3.min.js")
+
+
+    script(src="js/chartControl.js")
+
   body
     .topbar
       .topbody
         a.title SMDA
         ul.toplist
           li
-            a 未来趋势
+            a.name 未来趋势
           li
-            a 历史数据
-        a.username Jane Smith
-      .contain
-        .triangle
-        ul.downlist
-          li
-            a 我的账号
-          li
-            a 联系我们
-          li
-            a 退出登录
+            a.name 历史数据
+
+        ul(class=["nav","navbar-nav","navbar-right","user-nav"])
+          li(class=["dropdown","profile_menu"])
+            a(href="#",class="dropdown-toggle",data-toggle="dropdown")
+              span.name Jane Smith
+            ul.dropdown-menu
+              li
+                a 我的账号
+              li
+                a 联系我们
+              li
+                a 退出登录
+
     .container1
       ul.nav_tabs
-        li#tag1.active 销售趋势
-        li#tag2.normal 类目趋势
-        li#tag3.normal 类目分布
-        li#tag4.normal 品牌分布
-      .canvas_contain
+        li(id='tag1',class='active') 销售趋势
+        li(id='tag2',class='normal') 类目趋势
+        li(id='tag3',class='normal',onclick='cdistribution()') 类目分布
+        li(id='tag4',class='normal',onclick='bdistribution()') 品牌分布
+      div(class='canvas_contain',id='barCanvas',style='display:inline-block')
         canvas#myBarChart
-      #svg_contain
-    script(src="js/barChart.js")
-    script(src="js/dynamic.js")
+      div(class='canvas_contain2',id='Dchart',style='display:inline-block')
+        #svg_contain
+      div(class='canvas_contain',id='svgChart',style='display:none')
+        form
+          label
+            input(type="radio", name="mode", value="grouped")
+            | Grouped
+          label
+            input(type="radio", name="mode", value="stacked", checked)
+            | Stacked
+        .twoChart
+          svg(width="800" height="400")
+      div(class='canvas_contain2',id='PieCanvas',style='display:none')
+        .twoChart
+          .twoChart1
+            canvas#myPieChart
+          .twoChart2
+            .row
+              .col-md-12
+                .block-flat
+                  .header
+                    h3 类目排行
+
+                  .content
+                    .table-responsive
+                      table(class=['table', 'table-bordered'],id='datatable3')
+                        thead
+                          tr
+                            th 类目
+                            th 销售额
+                            th 占比
+                        tbody
+                          tr(class=["odd", "gradeX"])
+                            td Trident
+                            td Internet Explorer 4.0
+                            td Win 95+
+
+                          tr(class=['even', 'gradeC'])
+                            td Trident
+                            td Internet Explorer 5.0
+                            td Win 95+
+
+                          tr(class=["odd", "gradeA"])
+                            td Trident</td>
+                            td Internet Explorer 5.5</td>
+                            td Win 95+</td>
+
+
+
+
+
+      script(src="lib/bootstrap.min.js")
+      script(src="js/pieChart.js")
+      script(src="https://d3js.org/d3.v4.min.js")
+      script(src="js/barChart.js")
+      script(src="js/MutiBarChart.js")
+      script(src="js/tablecolor.js")
+      script(src="lib/jquery.jeditable.mini.js")
+      script(src="lib/jquery.datatables.min.js")
+      script(src="lib/datatables.js")
+      script(src="js/datatable.js")
+      script(src = "lib/jquery.js")
+      script(src="lib/d3.min.js")
+      script(src="js/dynamic.js")
     script.
       lastClick = 'tag1';
       currentClick = 'tag1';

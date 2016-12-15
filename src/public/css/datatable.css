@@ -1,0 +1,37 @@
+
+#color-switcher{
+  position:fixed;
+  background:#272930;
+  padding:10px;
+  top:50%;
+  right:0;
+  margin-right:-109px;
+}
+
+#color-switcher .toggle{
+  cursor:pointer;
+  font-size:15px;
+  color: #FFF;
+  display:block;
+  position:absolute;
+  padding:4px 10px;
+  background:#272930;
+  width:25px;
+  height:30px;
+  left:-24px;
+  top:22px;
+}
+
+#color-switcher p{color: rgba(255, 255, 255, 0.6);font-size:12px;margin-bottom:3px;}
+#color-switcher .palette{padding:1px;}
+#color-switcher .color{width:15px;height:15px;display:inline-block;cursor:pointer;}
+#color-switcher .color.purple{background:#7761A7;}
+#color-switcher .color.green{background:#19B698;}
+#color-switcher .color.red{background:#EA6153;}
+#color-switcher .color.blue{background:#54ADE9;}
+#color-switcher .color.orange{background:#FB7849;}
+#color-switcher .color.prusia{background:#476077;}
+#color-switcher .color.yellow{background:#fec35d;}
+#color-switcher .color.pink{background:#ea6c9c;}
+#color-switcher .color.brown{background:#9d6835;}
+#color-switcher .color.gray{background:#afb5b8;}

@@ -25,6 +25,7 @@ body{
 .toplist{
   display: inline-block;
   list-style-type:none;
+
 }
 .toplist a{
   color:#FFF;
@@ -39,6 +40,10 @@ body{
   display: block;
   float: right;
   position: relative;
+}
+.name{
+
+  color: white;
 }
 .username, .toplist a{
   padding: 20px;
@@ -81,7 +86,7 @@ body{
   border-bottom: 10px solid #fff;
 }
 .container1{
-  width: 58%;
+  width: 80%;
   height: 600px;
   margin: 0 auto;
 }
@@ -115,29 +120,60 @@ body{
   background-color: white;
 }
 #myBarChart{
-  width: 580px;
-  height: 290px;
+  width: 800px;
+  height: 400px;
 }
 #svg_contain,.canvas_contain{
   display: inline-block;
   vertical-align: top;
   background-color: white;
   padding: 2% 7% 10% 7%;
-  margin-bottom: 20px;
-  float: right;
+  width: 1000px;
+  height: 600px;
+}
+.canvas_contain2{
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  margin-top: 30px;
+  margin-left: 75px;
+  padding: 2% 7% 10% 7%;
+  width: 1000px;
+  height: 500px;
 }
 #svg_contain{
   margin: 0 auto;
   width: 74%;
 }
-svg {
-  font-family: "Helvetica Neue", Helvetica;
-  width: 580px;
-  height: 290px;
+
+
+#myPieChart{
+  width: 500px;
+  height: 400px;
 }
 
 .line {
   fill: none;
   stroke: #000;
   stroke-width: 2px;
+}
+
+.twoChart1{
+  width: 400px;
+  height: 400px;
+  float:left;
+  display:inline;
+
+}
+.twoChart2{
+  width: 500px;
+  height: 300px;
+  float:left;
+  display:inline;
+  padding-left: 100px;
+
+}
+.twoChart{
+  width: 1000px;
+  height: 600px;
 }

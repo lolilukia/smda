@@ -1,0 +1,15 @@
+form {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+label {
+  display: block;
+}
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
