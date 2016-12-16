@@ -91,6 +91,7 @@ html(class="no-js", lang="")
                           td Trident</td>
                           td Internet Explorer 5.5</td>
                           td Win 95+</td>
+
         div(class='canvas_contain col-lg-10',id='svgChart',style='display:none')
           form
             label
@@ -99,7 +100,6 @@ html(class="no-js", lang="")
             label
               input(type="radio", name="mode", value="stacked", checked)
               |Stacked
-          div(class=['twoChart','col-lg-10'])
             svg(width="800" height="400")
         div(class='canvas_contain2 col-lg-10',id='PieCanvas',style='display:none')
           .twoChart
@@ -142,7 +142,7 @@ html(class="no-js", lang="")
 
       script(src="lib/bootstrap.min.js")
       script(src="js/pieChart.js")
-      script(src="https://d3js.org/d3.v4.min.js")
+      script(src="lib/d4.min.js")
       script(src="js/barChart.js")
       script(src="js/MutiBarChart.js")
       script(src="js/tablecolor.js")

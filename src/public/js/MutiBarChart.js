@@ -35,7 +35,7 @@ var y = d3.scaleLinear()
   .range([height, 0]);
 
 var x2 = d3.scaleTime()
-  .domain([new Date(2011,12), new Date(2013,1)])
+  .domain([new Date(2011,12), new Date(2012,11)])
   .rangeRound([0, width])
 
 var x3 = d3.scaleTime()
