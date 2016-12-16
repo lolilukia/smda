@@ -87,7 +87,7 @@ body{
 }
 .container1{
   margin: 0 auto;
-  max-width: 62%;
+  max-width: 87%;
 }
 .nav_tabs{
   list-style: none;
@@ -97,6 +97,7 @@ body{
   display: inline-block;
   vertical-align: top;
   background-color: #eeeeee;
+  margin-left: 10.5%;
 }
 .nav_tabs a{
   text-decoration: none;
@@ -121,37 +122,45 @@ body{
 #myBarChart{
   width: 800px;
   height: 400px;
+  margin: 0 auto;
 }
-#svg_contain,.canvas_contain{
+#svg_contain {
   display: inline-block;
   vertical-align: top;
   background-color: white;
   padding: 2% 7% 10% 7%;
-  width: 1000px;
-  height: 600px;
+  height: 400px;
+  float: right !important;
+}
+.canvas_contain{
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  padding: 2% 7% 10% 7%;
+  height: 500px;
+  float: right !important;
 }
 .canvas_contain2{
   display: inline-block;
   vertical-align: top;
   background-color: white;
   margin-top: 30px;
-  margin-left: 75px;
+  margin-left: 68px;
   padding: 2% 7% 10% 7%;
-  width: 1000px;
-  height: 500px;
+  height: 400px;
   overflow: hidden;
+  float: right !important;
 }
 .table_contain2{
   background-color: white;
   margin-top: 30px;
-  margin-left: 75px;
+  margin-left: 68px;
   padding: 2% 7% 10% 7%;
-  width: 1000px;
   height: 400px;
+  float: right !important;
 }
 #svg_contain{
   margin: 0 auto;
-  width: 74%;
 }
 
 

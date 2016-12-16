@@ -1,12 +1,12 @@
-lastClick = 'tag1';
-currentClick = 'tag1';
+lastClick = 'tag4';
+currentClick = 'tag4';
 $(document).ready(function() {
   var width = document.body.clientWidth;
   var height = document.body.clientHeight;
   $('#myBarChart').css('width', width/2.335 + 'px');
   $('#myBarChart').css('height', width/4.67 + 'px');
-  $('svg').css('width', width/2.335 + 'px');
-  $('svg').css('height', width/4.67 + 'px');
+  $('#svg_contain').children('svg').css('width', width/2.335 + 'px');
+  $('#svg_contain').children('svg').css('height', width/4.67 + 'px');
   if(width > 1600){
     $('.contain').css('width', '6%');
   }

@@ -42,11 +42,11 @@ html(class="no-js", lang="")
     .container1
       .contain_group
         ul.nav_tabs
-          li(id='tag1',class='active') 销售趋势
+          li(id='tag1',class='normal') 销售趋势
           li(id='tag2',class='normal') 类目趋势
           li(id='tag3',class='normal',onclick='cdistribution()') 类目分布
-          li(id='tag4',class='normal',onclick='bdistribution()') 品牌分布
-        div(class='canvas_contain',id='barCanvas',style='display:inline-block')
+          li(id='tag4',class='active',onclick='bdistribution()') 品牌分布
+        div(class='canvas_contain col-lg-10',id='barCanvas',style='display:inline-block')
           .contain_title
             span 品牌销售额
           label#yearSelect
@@ -57,11 +57,11 @@ html(class="no-js", lang="")
               option(value="2012") 2015
               option(value="2012") 2016
           canvas#myBarChart
-        div(class='canvas_contain2',id='Dchart',style='display:inline-block')
+        div(class='canvas_contain2 col-lg-10',id='Dchart',style='display:inline-block')
           .contain_title
             span 品牌占比情况
-          #svg_contain
-        div(class='table_contain2',id='brand_table',style='display:inline-block')
+          #svg_contain.col-lg-10
+        div(class='table_contain2 col-lg-10',id='brand_table',style='display:inline-block')
           .row
             .col-md-12
               .block-flat
@@ -91,7 +91,7 @@ html(class="no-js", lang="")
                           td Trident</td>
                           td Internet Explorer 5.5</td>
                           td Win 95+</td>
-        div(class='canvas_contain',id='svgChart',style='display:none')
+        div(class='canvas_contain col-lg-10',id='svgChart',style='display:none')
           form
             label
               input(type="radio", name="mode", value="grouped")
@@ -99,9 +99,9 @@ html(class="no-js", lang="")
             label
               input(type="radio", name="mode", value="stacked", checked)
               | Stacked
-          .twoChart
+          div(class=['twoChart','col-lg-10'])
             svg(width="800" height="400")
-        div(class='canvas_contain2',id='PieCanvas',style='display:none')
+        div(class='canvas_contain2 col-lg-10',id='PieCanvas',style='display:none')
           .twoChart
             .twoChart1
               canvas#myPieChart
