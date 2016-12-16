@@ -91,15 +91,17 @@ html(class="no-js", lang="")
                           td Trident</td>
                           td Internet Explorer 5.5</td>
                           td Win 95+</td>
+
         div(class='canvas_contain col-lg-10',id='svgChart',style='display:none')
-          form
-            label
-              input(type="radio", name="mode", value="grouped")
-              | Grouped
-            label
-              input(type="radio", name="mode", value="stacked", checked)
-              | Stacked
+
           div(class=['twoChart','col-lg-10'])
+            form
+              label
+                input(type="radio", name="mode", value="grouped")
+                | Grouped
+              label
+                input(type="radio", name="mode", value="stacked", checked)
+                | Stacked
             svg(width="800" height="400")
         div(class='canvas_contain2 col-lg-10',id='PieCanvas',style='display:none')
           .twoChart
