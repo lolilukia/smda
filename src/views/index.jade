@@ -7,40 +7,160 @@ html(class="no-js", lang="")
     meta(name="description", description=description)
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(rel="stylesheet" type="text/css" href="css/style.css")
+    link(rel="stylesheet" type="text/css" href="css/MutiBarChart.css")
+    link(href="lib/bootstrap.css",rel="stylesheet")
+    link(rel="stylesheet" ,type="text/css" ,href="css/datatables.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/datatable.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/tablestyle.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/timeSelect.css")
     script(src = "lib/Chart.js")
-    script(src="lib/d3.min.js")
-    script(src="js/dynamic.js")
+    script(src = "lib/jquery.js")
+    script(src="js/chartControl.js")
+    script(src="lib/exporting.js")
+
   body
     .topbar
       .topbody
         a.title SMDA
         ul.toplist
           li
-            a 未来趋势
+            a.name 未来趋势
           li
-            a 历史数据
-        a.username Jane Smith
-      .contain
-        .triangle
-        ul.downlist
-          li
-            a 我的账号
-          li
-            a 联系我们
-          li
-            a 退出登录
+            a.name 历史数据
+
+        ul(class=["nav","navbar-nav","navbar-right","user-nav"])
+          li(class=["dropdown","profile_menu"])
+            a(href="#",class="dropdown-toggle",data-toggle="dropdown")
+              span.name Jane Smith
+            ul.dropdown-menu
+              li
+                a 我的账号
+              li
+                a 联系我们
+              li
+                a 退出登录
+
     .container1
       ul.nav_tabs
-        li.active
-          a 销售趋势
-        li
-          a 类目趋势
-        li
-          a 类目分布
-        li
-          a 品牌分布
-      .canvas_contain
-        canvas#myBarChart
-    script(src="js/barChart.js")
+        li(id='tag1',class='normal') 销售趋势
+        li(id='tag2',class='normal') 类目趋势
+        li(id='tag3',class='normal') 类目分布
+        li(id='tag4',class='active') 品牌分布
+      div(class=['contain_group4'])(style='display:inline-block')
+        div(class='canvas_contain col-lg-10',id='barCanvas')
+          .contain_title
+            span 品牌销售额
+          label#yearSelect
+            select#selection
+              option(value="2012") 2012
+              option(value="2012") 2013
+              option(value="2012") 2014
+              option(value="2012") 2015
+              option(value="2012") 2016
+          canvas#myBarChart
+        div(class='canvas_contain2 col-lg-10',id='Dchart')
+          .contain_title
+            span 品牌占比情况
+          #svg_contain.col-lg-10
+        div(class='table_contain2 col-lg-10',id='brand_table')
+          .row
+            .col-md-12
+              .block-flat
+                .header
+                  h3 品牌排行
+
+                .content
+                  .table-responsive
+                    table(class=['table', 'table-bordered'],id='datatable4')
+                      thead
+                        tr
+                          th 类目
+                          th 销售额
+                          th 占比
+                      tbody
+                        tr(class=["odd", "gradeX"])
+                          td Trident
+                          td Internet Explorer 4.0
+                          td Win 95+
+
+                        tr(class=['even', 'gradeC'])
+                          td Trident
+                          td Internet Explorer 5.0
+                          td Win 95+
+
+                        tr(class=["odd", "gradeA"])
+                          td Trident</td>
+                          td Internet Explorer 5.5</td>
+                          td Win 95+</td>
+      div(class=['contain_group3'])(style='display:none')
+        div(class='canvas_contain col-lg-10',id='svgChart')
+          form
+            label
+              input(type="radio", name="mode", value="grouped")
+              |Grouped
+            label
+              input(type="radio", name="mode", value="stacked", checked)
+              |Stacked
+            svg(width="800" height="400")
+        div(class='canvas_contain2 col-lg-10',id='PieCanvas')
+          .twoChart
+            .twoChart1
+              canvas#myPieChart
+            .twoChart2
+              .row
+                .col-md-12
+                  .block-flat
+                    .header
+                      h3 类目排行
+
+                    .content
+                      .table-responsive
+                        table(class=['table', 'table-bordered'],id='datatable3')
+                          thead
+                            tr
+                              th 类目
+                              th 销售额
+                              th 占比
+                          tbody
+                            tr(class=["odd", "gradeX"])
+                              td Trident
+                              td Internet Explorer 4.0
+                              td Win 95+
+
+                            tr(class=['even', 'gradeC'])
+                              td Trident
+                              td Internet Explorer 5.0
+                              td Win 95+
+
+                            tr(class=["odd", "gradeA"])
+                              td Trident</td>
+                              td Internet Explorer 5.5</td>
+                              td Win 95+</td>
+      div(class=['contain_group2'])(style='display:none')
+        div(class='canvas_contain col-lg-10',id='categoryTendency')
+          div(id='container',style='min-width:400px;height:400px')
+
+
+
+
+      script(src="lib/bootstrap.min.js")
+      script(src="js/pieChart.js")
+      script(src="lib/d4.min.js")
+      script(src="js/barChart.js")
+      script(src="js/MutiBarChart.js")
+      script(src="js/tablecolor.js")
+      script(src="lib/jquery.jeditable.mini.js")
+      script(src="lib/jquery.datatables.min.js")
+      script(src="lib/datatables.js")
+      script(src="js/datatable.js")
+
+      script(src="js/dynamic.js")
+      script(src="js/click.js")
+      script(src="lib/highcharts.js")
+      script(src="js/percentagepile.js")
+
+
+
+
 
 

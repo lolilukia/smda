@@ -1,0 +1,100 @@
+//
+   Created by dell on 2016/12/15.
+div(class='canvas_contain',id='svgChart',style='display:none')
+  form
+    label
+      input(type="radio", name="mode", value="grouped")
+      | Grouped
+    label
+      input(type="radio", name="mode", value="stacked", checked)
+      | Stacked
+  div
+    svg(width="800" height="500")
+div(class='canvas_contain',id='PieCanvas',style='display:none')
+  #twoChart
+    .twoChart1
+      canvas#myPieChart
+    .twoChart2
+      .row
+        .col-md-12
+          .block-flat
+            .header
+              h3 类目排行
+
+            .content
+              .table-responsive
+                table(class=['table', 'table-bordered'],id='datatable3')
+                  thead
+                    tr
+                      th 类目
+                      th 销售额
+                      th 占比
+                  tbody
+                    tr(class=["odd", "gradeX"])
+                      td Trident
+                      td Internet Explorer 4.0
+                      td Win 95+
+
+                    tr(class=['even', 'gradeC'])
+                      td Trident
+                      td Internet Explorer 5.0
+                      td Win 95+
+
+                    tr(class=["odd", "gradeA"])
+                      td Trident</td>
+                      td Internet Explorer 5.5</td>
+                      td Win 95+</td>
+
+                    tr(class=["even", "gradeA"])
+                      td Trident</td>
+                      td Internet Explorer 6</td>
+                      td Win 98+</td>
+
+                    tr(class=["odd", "gradeA"])
+                      td Trident</td>
+                      td Internet Explorer 7</td>
+                      td Win XP SP2+</td>
+
+                    tr(class=["even", "gradeA"])
+                      td Trident</td>
+                      td AOL browser (AOL desktop)</td>
+                      td Win XP</td>
+
+                    tr(class="gradeA")
+                      td Gecko</td>
+                      td Firefox 1.0</td>
+                      td Win 98+ / OSX.2+</td>
+
+                    tr(class="gradeA")
+                      td Gecko</td>
+                      td Firefox 1.5</td>
+                      td Win 98+ / OSX.2+</td>
+
+                    tr(class="gradeA")
+                      td Gecko</td>
+                      td Firefox 2.0</td>
+                      td Win 98+ / OSX.2+</td>
+
+                    tr(class="gradeA")
+                      td Gecko</td>
+                      td Firefox 3.0</td>
+                      td Win 2k+ / OSX.3+</td>
+
+                    tr(class="gradeA")
+                      td Gecko</td>
+                      td Camino 1.0</td>
+                      td OSX.2+</td>
+
+
+
+script(src="lib/bootstrap.min.js")
+script(src="js/pieChart.js")
+script(src="https://d3js.org/d3.v4.min.js")
+
+script(src="js/MutiBarChart.js")
+script(src="js/tablecolor.js")
+script(src="lib/jquery.jeditable.mini.js")
+script(src="lib/jquery.datatables.min.js")
+script(src="lib/datatables.js")
+script(src="js/datatable.js")
+
