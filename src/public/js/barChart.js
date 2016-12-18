@@ -1,46 +1,74 @@
-var ctx = document.getElementById("myBarChart");
-var data = {
-  labels: ["2016-1", "2016-2", "2016-3", "2016-4", "2016-5", "2016-6", "2016-7","2016-8","2016-9","2016-10","2016-11","2016-12"],
-  datasets: [
-    {
-      label: '销售额',
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(153, 102, 255, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(255, 99, 132, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(153, 102, 255, 1)'
-      ],
-      borderWidth: 1,
-      data: [7, 3, 7, 6, 5, 5, 4, 6, 5, 8, 4, 5]
-    }
-  ]
-};
-var myBarChart = new Chart(ctx, {
-  type: 'bar',
-  data: data,
-  xAxisID:'月份',
-  yAxisID:'销售额',
-  options:  {}
+$(function () {
+  Highcharts.chart('myBarChart', {
+    chart: {
+      zoomType: 'xy'
+    },
+    title: {
+      text: ''
+    },
+    subtitle: {
+      text: ''
+    },
+    xAxis: [{
+      categories: ['vinda','walch','clear','space7','may flower','拉芳','沙宣','立白','蓝月亮','清风','心相印','海飞丝'],
+      crosshair: true
+    }],
+    yAxis: [{ // Primary yAxis
+      labels: {
+        format: '{value}°C',
+        style: {
+          color: Highcharts.getOptions().colors[1]
+        }
+      },
+      title: {
+        text: '气温',
+        style: {
+          color: Highcharts.getOptions().colors[1]
+        }
+      }
+    }, { // Secondary yAxis
+      title: {
+        text: '销售额',
+        style: {
+          color: Highcharts.getOptions().colors[0]
+        }
+      },
+      labels: {
+        format: '{value}千万元',
+        style: {
+          color: Highcharts.getOptions().colors[0]
+        }
+      },
+      opposite: true
+    }],
+    tooltip: {
+      shared: true
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'left',
+      x: 120,
+      verticalAlign: 'top',
+      y: 100,
+      floating: true,
+      backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    series: [{
+      name: '销售额',
+      type: 'column',
+      yAxis: 1,
+      data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+      tooltip: {
+        valueSuffix: ' 千万元'
+      }
+
+    }, {
+      name: '气温',
+      type: 'spline',
+      data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+      tooltip: {
+        valueSuffix: '°C'
+      }
+    }]
+  });
 });

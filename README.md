@@ -62,6 +62,8 @@ visit our sponsors:
 │── package.json                # The list of 3rd party libraries and utilities
 └── preprocessor.js             # ES6 transpiler settings for Jest
 ```
+### 接口数据格式
+  * 参见接口数据文档(./docs/interface.md)
 
 ### Related Projects
 
