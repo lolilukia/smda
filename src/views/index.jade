@@ -139,8 +139,39 @@ html(class="no-js", lang="")
       div(class=['contain_group2'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='categoryTendency')
           div(id='container',style='min-width:400px;height:400px')
+      div(class=['contain_group1'])(style='display:none')
+        div(class='canvas_contain col-lg-10',id='fristCanvas')
+          #container111.col-lg-7
+        div(class='table_contain2 col-lg-10',id='sales_table')
+          .row
+            .col-md-12
+              .block-flat
+                .header
+                  h3 各月销售额
 
+                .content
+                  .table-responsive
+                    table(class=['table', 'table-bordered'],id='datatable1')
+                      thead
+                        tr
+                          th 月份
+                          th 销售额
+                          th 占比
+                      tbody
+                        tr(class=["odd", "gradeX"])
+                          td Trident
+                          td Internet Explorer 4.1
+                          td Win 95+
 
+                        tr(class=['even', 'gradeC'])
+                          td Trident
+                          td Internet Explorer 5.0
+                          td Win 95+
+
+                        tr(class=["odd", "gradeA"])
+                          td Trident</td>
+                          td Internet Explorer 5.5</td>
+                          td Win 95+</td>
 
 
       script(src="lib/bootstrap.min.js")
@@ -157,6 +188,8 @@ html(class="no-js", lang="")
       script(src="lib/highcharts.js")
       script(src="js/barChart.js")
       script(src="js/percentagepile.js")
+      script(src="js/fullwidthchart.js")
+
 
 
 
