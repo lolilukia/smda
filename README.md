@@ -63,7 +63,7 @@ visit our sponsors:
 └── preprocessor.js             # ES6 transpiler settings for Jest
 ```
 ### 接口数据格式
-  * 参见接口数据文档(./docs/interface.md)
+  * 参见[接口数据文档](./docs/interface.md)
 
 ### Related Projects
 
