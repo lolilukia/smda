@@ -90,6 +90,8 @@
         },
 
         ```
+#### 请求示例
+    10.60.36.3/smda/?r=cate-dist/do&type=cate_sales&year=2012&category=1
 #### 请求参数（年份和类目名称）
     ```
        year：'2012'
@@ -109,6 +111,8 @@
         data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
 
         ```
+#### 请求示例
+    10.60.36.3/smda/?r=cate-dist/do&type=temperature&year=2012
 #### 请求参数（年份）
     ```
        year：'2012'
@@ -119,6 +123,8 @@
 
     ```
 ### 类目排行
+#### 请求示例
+    10.60.36.3/smda/?r=cate-dist/do&type=ranking&year=2012&month=1
 #### 请求参数
       ```
       type: 'ranking',
