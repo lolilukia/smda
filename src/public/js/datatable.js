@@ -24,7 +24,23 @@ $(document).ready(function(){
   }
 
 
+  /* Init DataTables */
+  var aTable = $('#datatable1').dataTable();
 
+  /* Apply the jEditable handlers to the table */
+  aTable.$('td').editable( 'js/jquery.datatables/examples/examples_support/editable_ajax.php', {
+    "callback": function( sValue, y ) {
+      var aPos = aTable.fnGetPosition( this );
+      aTable.fnUpdate( sValue, aPos[0], aPos[1] );
+    },
+    "submitdata": function ( value, settings ) {
+      return {
+        "row_id": this.parentNode.getAttribute('id'),
+        "column": aTable.fnGetPosition( this )[2]
+      };
+    },
+    "height": "14px",
+  });
   /* Init DataTables */
   var aTable = $('#datatable3').dataTable();
 
