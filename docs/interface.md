@@ -1,6 +1,8 @@
 ## 数据接口文档
 ### 品牌分布
 ### 天气和销售额的关系
+#### 请求示例
+      http://10.60.36.3/smda/?r=brand-dist/do&type=sale_amount&year=2012&month=6
 #### 请求参数
       ```
       type: 'sale_amount',
