@@ -1,211 +1,115 @@
+var myChart = echarts.init(document.getElementById('main'));
 
+// 指定图表的配置项和数据
+var option = {
 
-var n = 10, // The number of series.
-  m = 12; // The number of values per series.
+  tooltip: {
 
-// The xz array has m elements, representing the x-values shared by all series.
-// The yz array has n elements, representing the y-values of each of the n series.
-// Each yz[i] is an array of m non-negative numbers representing a y-value for xz[i].
-// The y01z array has the same structure as yz, but with stacked [y?, y?] instead of y.
+    trigger: 'axis'
 
-var data = Array.apply(0, Array(12)).map(function(item, i) {
-  i++;
-  return {date: i, pv: parseInt(Math.random() * 100)}
-});
-
-var xz=d3.range(m)
-yz = d3.range(n).map(function() { return bumps(m); }),
-  y01z = d3.stack().keys(d3.range(n))(d3.transpose(yz)),
-  yMax = d3.max(yz, function(y) { return d3.max(y); }),
-  y1Max = d3.max(y01z, function(y) { return d3.max(y, function(d) { return d[1]; }); });
-
-var svg = d3.select("svg"),
-  margin = {top: 40, right: 20, bottom: 20, left: 60},
-  width = +svg.attr("width") - margin.left - margin.right,
-  height = +svg.attr("height") - margin.top - margin.bottom,
-  g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var x = d3.scaleBand()
-  .domain(xz)
-  .rangeRound([-10, width+10])
-  .padding(0.2);
-
-var y = d3.scaleLinear()
-  .domain([0, y1Max])
-  .range([height, 0]);
-
-var x2 = d3.scaleTime()
-  .domain([new Date(2011,12), new Date(2012,11)])
-  .rangeRound([0, width])
-
-var x3 = d3.scaleTime()
-  .domain([0, d3.max(data, function(d) { return d.date; })])
-  .rangeRound([0, width])
-
-var y2 = d3.scaleLinear()
-  .domain([0, d3.max(data, function(d) { return d.pv; })])
-  .range([height, 0]);
-
-var line = d3.line()
-  .x(function(d,i) { return (x(i)+x.bandwidth()/2); })
-  .y(function(d) { return y2(d.pv); });
-
-
-
-var colors =["#19CAAD","#8CC7B5","#A0EEE1","#BEE7E9","#BEEDC7","#D6D5B7","#bc80bd","#E6CEAC","#ECAD9E","#F4606C"]
-var color = d3.scaleOrdinal()
-  .domain(d3.range(n))
-  .range(colors);
-var series = g.selectAll(".series")
-  .data(y01z)
-  .enter().append("g")
-  .attr("fill", function(d, i) { return color(i); });
-
-var rect = series.selectAll("rect")
-  .data(function(d) { return d; })
-  .enter().append("rect")
-  .attr("x", function(d, i) { return x(i); })
-  .attr("y", height)
-  .attr("width", x.bandwidth())
-  .attr("height", 0);
-
-
-
-
-
-rect.transition()
-  .delay(function(d, i) { return i * 10; })
-  .attr("y", function(d) { return y(d[1]); })
-  .attr("height", function(d) { return y(d[0]) - y(d[1]); });
-
-
-
-
-g.append("g")
-  .attr("class", "axis axis--x")
-  .attr("transform", "translate(0," + height + ")")
-  .call(d3.axisBottom(x2)
-    .tickSize(0)
-    .tickPadding(6));
-
-
-
-g.append("g")
-  .attr("class", "axis axis--y")
-
-  .call(d3.axisLeft(y)
-    .tickSize(0)
-    .tickPadding(1))
- .append("text")
-  .attr("fill", "#000")
-  .attr("transform", "translate(0,0)")
-  .attr("x", 6)
-  .attr("dx", "0.71em")
-  .style("text-anchor", "end")
-  .text("销售量");
-
-g.append("g")
-  .attr("class", "axis axis--y2")
-  .attr("transform", "translate(" + width + ",0)")
-  .call(d3.axisRight(y2)
-    .tickSize(0)
-    .tickPadding(1))
- .append("text")
-  .attr("fill", "#000")
-  .attr("transform", "translate(" + width-10 + ",0)")
-  .attr("x", 6)
-  .attr("dx", "0.71em")
-  .style("text-anchor", "end")
-  .text("摄氏度（℃）");
-g.append("path")
-  .datum(data)
-  .attr("class", "line")
-  .attr("d", line);
-
-
-
-
-g.selectAll("circle")
-  .data(data)
-  .enter()
-  .append("circle")
-  .attr("cx", function(d,i) { return (x(i)+x.bandwidth()/2); })
-  .attr("cy", function(d) { return y2(d.pv); })
-  .attr("r", 3)
-  .style("fill", function(d,i) { return color(i); });
-
-
-d3.selectAll("input")
-  .on("change", changed);
-
-var timeout = d3.timeout(function() {
-  d3.select("input[value=\"grouped\"]")
-    .property("checked", true)
-    .dispatch("change");
-}, 2000);
-
-function changed() {
-  timeout.stop();
-  if (this.value === "grouped") transitionGrouped();
-  else transitionStacked();
-}
-
-function transitionGrouped() {
-  y.domain([0, yMax]);
-
-  rect.transition()
-    .duration(500)
-    .delay(function(d, i) { return i * 10; })
-    .attr("x", function(d, i) { return x(i) + x.bandwidth() / n * this.parentNode.__data__.key; })
-    .attr("width", x.bandwidth() / n)
-    .transition()
-    .attr("y", function(d) { return y(d[1] - d[0]); })
-    .attr("height", function(d) { return y(0) - y(d[1] - d[0]); });
-}
-
-function transitionStacked() {
-  y.domain([0, y1Max]);
-
-
-  rect.transition()
-    .duration(500)
-    .delay(function(d, i) { return i * 10; })
-    .attr("y", function(d) { return y(d[1]); })
-    .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-    .transition()
-    .attr("x", function(d, i) { return x(i); })
-    .attr("width", x.bandwidth());
-
-
-
-}
-
-// Returns an array of m psuedorandom, smoothly-varying non-negative numbers.
-// Inspired by Lee Byron’s test data generator.
-// http://leebyron.com/streamgraph/
-function bumps(m) {
-  var values = [], i, j, w, x, y, z;
-
-  // Initialize with uniform random values in [0.1, 0.2).
-  for (i = 0; i < m; ++i) {
-    values[i] = 0.1 + 0.1 * Math.random();
-  }
-
-  // Add five random bumps.
-  for (j = 0; j < 5; ++j) {
-    x = 1 / (0.1 + Math.random());
-    y = 2 * Math.random() - 0.5;
-    z = 10 / (0.1 + Math.random());
-    for (i = 0; i < m; i++) {
-      w = (i / m - y) * z;
-      values[i] += x * Math.exp(-w * w);
+  },
+  toolbox: {
+    feature: {
+      dataView: {show: true, readOnly: false},
+      magicType: {show: true, type: ['line', 'bar']},
+      restore: {show: true},
+      saveAsImage: {show: true}
     }
-  }
+  },
+  legend: {
+    data:['洗发沐浴/个人清洁','纸品/湿巾','衣物清洁剂/护理剂','卫生巾/护垫/成人尿裤','家庭环境清洁剂',
+      '室内除臭/芳香用品','家私/皮具护理品','香熏用品','驱虫用品','其他']
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      name: '销售额',
+      min: 0,
+      max: 170000000,
+      interval: 250000000,
+      axisLabel: {
+        formatter: '{value} 元'
+      }
+    },
+    {
+      type: 'value',
+      name: '气温',
+      min: -10,
+      max: 25,
+      interval: 5,
+      axisLabel: {
+        formatter: '{value} °C'
+      }
+    }
+  ],
+  series: [
+    {
+      name:'洗发沐浴/个人清洁',
+      type:'bar',
+      data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+    },
+    {
+      name:'纸品/湿巾',
+      type:'bar',
+      data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+    },
+    {
+      name:'衣物清洁剂/护理剂',
+      type:'bar',
 
-  // Ensure all values are positive.
-  for (i = 0; i < m; ++i) {
-    values[i] = Math.max(0, values[i]);
-  }
+      data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+    },
+    {
+      name:'卫生巾/护垫/成人尿裤',
+        type:'bar',
+      data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+    },
+    {
+      name:'家庭环境清洁剂',
+        type:'bar',
+      data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+    },
+    {
+      name:'室内除臭/芳香用品',
+        type:'bar',
 
-  return values;
-}
+      data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+    },
+    {
+      name:'家私/皮具护理品',
+        type:'bar',
+      data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+    },
+    {
+      name:'香熏用品',
+        type:'bar',
+      data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+    },
+    {
+      name:'驱虫用品',
+        type:'bar',
+
+      data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+    },
+    {
+      name:'其他',
+        type:'bar',
+
+      data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+    },
+    {
+      name:'平均气温',
+      type:'line',
+      yAxisIndex: 1,
+      data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+    }
+  ]
+};
+
+myChart.setOption(option);
