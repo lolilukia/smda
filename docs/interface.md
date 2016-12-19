@@ -41,6 +41,8 @@
 
 ### 类目趋势
 ### 各个年份每个月各类目销售占比
+#### 请求示例
+      http://10.60.36.3/smda/?r=cate-trend/do&type=category_proportion&year=2012
 #### 请求参数
       ```
       type: 'category_proportion',
