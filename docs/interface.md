@@ -3,6 +3,8 @@
 
 ### 销售趋势
 ### 一年之中各月销量数据（图）
+#### 请求示例
+     10.60.36.3/smda/?r=sale-trend/do&type=month_sales&year=2013
 #### 请求参数
       ```
       type: 'month_sales',
