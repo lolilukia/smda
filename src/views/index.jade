@@ -50,8 +50,8 @@ html(class="no-js", lang="")
         div(class='canvas_contain col-lg-10',id='barCanvas')
           .contain_title
             span 品牌销售额
-          label#yearSelect
-            select#selection
+          label.yearSelect
+            select.selection#bselection
               option(value="2012") 2012
               option(value="2012") 2013
               option(value="2012") 2014
@@ -94,15 +94,19 @@ html(class="no-js", lang="")
                           td Win 95+</td>
       div(class=['contain_group3'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='svgChart')
-          form
-            label
-              input(type="radio", name="mode", value="grouped")
-              |Grouped
-            label
-              input(type="radio", name="mode", value="stacked", checked)
-              |Stacked
-            svg(width="800" height="400")
+          .contain_title
+            span 类目销售额
+          label.yearSelect
+            select.selection#cselection
+              option(value="2012") 2012
+              option(value="2012") 2013
+              option(value="2012") 2014
+              option(value="2012") 2015
+              option(value="2012") 2016
+          svg(width="800" height="400")
         div(class='canvas_contain2 col-lg-10',id='PieCanvas')
+          .contain_title
+            span 类目占比情况
           .twoChart
             .twoChart1
               canvas#myPieChart

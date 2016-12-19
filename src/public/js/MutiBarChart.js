@@ -95,15 +95,28 @@ g.append("g")
 
   .call(d3.axisLeft(y)
     .tickSize(0)
-    .tickPadding(1));
+    .tickPadding(1))
+ .append("text")
+  .attr("fill", "#000")
+  .attr("transform", "translate(0,0)")
+  .attr("x", 6)
+  .attr("dx", "0.71em")
+  .style("text-anchor", "end")
+  .text("销售量");
 
 g.append("g")
   .attr("class", "axis axis--y2")
   .attr("transform", "translate(" + width + ",0)")
   .call(d3.axisRight(y2)
     .tickSize(0)
-    .tickPadding(1));
-
+    .tickPadding(1))
+ .append("text")
+  .attr("fill", "#000")
+  .attr("transform", "translate(" + width-10 + ",0)")
+  .attr("x", 6)
+  .attr("dx", "0.71em")
+  .style("text-anchor", "end")
+  .text("摄氏度（℃）");
 g.append("path")
   .datum(data)
   .attr("class", "line")
