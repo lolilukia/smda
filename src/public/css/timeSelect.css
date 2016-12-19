@@ -1,4 +1,4 @@
-select#selection
+select.selection
 {
   width: 100px;
   height: 25px;
@@ -21,20 +21,20 @@ select#selection
   cursor                   : pointer;
   outline                  : none;
 }
-select#selection option
+select.selection option
 {
   padding             : 4px 10px 4px 10px;
   font-size           : 12px;
   font-weight         : normal;
   line-height         : 13px;
 }
-select#selection option[selected]{font-weight:bold}
-select#selection option:nth-child(even) { background-color:#f5f5f5; }
+select.selection option[selected]{font-weight:bold}
+select.selection option:nth-child(even) { background-color:#f5f5f5; }
 
 /*LABEL FOR SELECT*/
-label#yearSelect{ margin: 10px 30px; position: relative; display: inline-block;}
+label.yearSelect{ margin: 10px 30px; position: relative; display: inline-block;}
 /*DOWNWARD ARROW (25bc)*/
-label#yearSelect::after
+label.yearSelect::after
 {
   content                 : "\25bc";
   position                : absolute;
