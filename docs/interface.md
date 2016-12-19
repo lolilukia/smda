@@ -152,9 +152,12 @@
       }
       ```
 ### 品牌市场份额（所有品牌的总数据）
+#### 请求示例
+      http://10.60.36.3/smda/?r=brand-dist/do&type=market_shares&year=2013
 #### 请求参数
       ```
-      type: 'market_shares'
+      type: 'market_shares',
+      year: '2016'
       ```
 #### 返回JSON示例
 #### 品牌为xxx，在xxxx年x月的销售额为xxx千万元
