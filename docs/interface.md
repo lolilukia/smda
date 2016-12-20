@@ -22,6 +22,8 @@
       ```
 
 ### 各月销售表
+#### 请求示例
+      同上
 #### 请求参数
       ```
       type: 'sales_num',
@@ -42,7 +44,7 @@
 ### 类目趋势
 ### 各个年份每个月各类目销售占比
 #### 请求示例
-      http://10.60.36.3/smda/?r=cate-trend/do&type=category_proportion&year=2012
+      10.60.36.3/smda/?r=cate-trend/do&type=category_proportion&year=2012&month=12
 #### 请求参数
       ```
       type: 'category_proportion',
@@ -58,6 +60,8 @@
       }
       ```
 ### 各类目占比详情
+#### 请求示例
+      10.60.36.3/smda/?r=cate-trend/do&type=detailed_cate_Proportion&year=2012
 #### 请求参数
       ```
       type: 'detailed_cate_Proportion ',
@@ -146,7 +150,7 @@
 ### 品牌分布
 ### 天气和销售额的关系
 #### 请求示例
-      http://10.60.36.3/smda/?r=brand-dist/do&type=sale_amount&year=2012&month=6
+      10.60.36.3/smda/?r=brand-dist/do&type=sale_amount&year=2012&month=6
 #### 请求参数
       ```
       type: 'sale_amount',
@@ -163,7 +167,7 @@
       ```
 ### 品牌市场份额（所有品牌的总数据）
 #### 请求示例
-      http://10.60.36.3/smda/?r=brand-dist/do&type=market_shares&year=2013
+      10.60.36.3/smda/?r=brand-dist/do&type=market_shares&year=2013
 #### 请求参数
       ```
       type: 'market_shares',
