@@ -110,7 +110,11 @@ option = {
   },
   series: [
     {
+<<<<<<< HEAD
+      name: 'pm2.5',
+=======
       name: '气温',
+>>>>>>> origin/master
       type: 'scatter',
       coordinateSystem: 'geo',
       data: convertData([
@@ -165,10 +169,12 @@ option = {
 };
 if (option && typeof option === "object") {
   myChart.setOption(option, true);
+
   myChart.on('click', function (params) {
     // 控制台打印数据的名称
     console.log(params.name);
     document.getElementById("wcity").innerHTML=params.name;
     document.getElementById("wvalue").innerHTML=params.value[2]+"℃";
   });
+
 }

@@ -19,6 +19,7 @@ html(class="no-js", lang="")
     script(src = "lib/Chart.js")
     script(src = "lib/jquery.js")
     script(src="js/chartControl.js")
+    script(src="lib/highcharts.js")
     script(src="lib/exporting.js")
 
   body
@@ -30,7 +31,6 @@ html(class="no-js", lang="")
             a.name 历史数据
           li(id='2')
             a.name 未来趋势
-
         ul(class=["nav","navbar-nav","navbar-right","user-nav"])
           li(class=["dropdown","profile_menu"])
             a(href="#",class="dropdown-toggle",data-toggle="dropdown")
@@ -58,13 +58,17 @@ html(class="no-js", lang="")
         div(class='canvas_contain col-lg-10',id='barCanvas')
           .contain_title
             span 品牌销售额
-          label.yearSelect
-            select.selection#bselection
-              option(value="2012") 2012
-              option(value="2012") 2013
-              option(value="2012") 2014
-              option(value="2012") 2015
-              option(value="2012") 2016
+          -var year = ['2013','2014','2015']
+          -var month = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+          label#yearSelect.yearSelect
+            select#yearselection.selection
+              each itemy in year
+                option(value=itemy) #{itemy}
+          label#monthSelect.yearSelect
+            select#monthselection.selection
+              each itemm in month
+                option(value=itemm) #{itemm}
+          #submit.submitBtn 生成
           #myBarChart
         div(class='canvas_contain col-lg-10',id='Dchart')(style='display:none')
           .contain_title
@@ -82,35 +86,28 @@ html(class="no-js", lang="")
                     table(class=['table', 'table-bordered'],id='datatable4')
                       thead
                         tr
-                          th 类目
+                          th 品牌
                           th 销售额
                           th 占比
-                      tbody
+                      tbody#tbody4
                         tr(class=["odd", "gradeX"])
-                          td Trident
-                          td Internet Explorer 4.0
-                          td Win 95+
+                          td vinda
+                          td 49.9
+                          td 22%
 
-                        tr(class=['even', 'gradeC'])
-                          td Trident
-                          td Internet Explorer 5.0
-                          td Win 95+
-
-                        tr(class=["odd", "gradeA"])
-                          td Trident</td>
-                          td Internet Explorer 5.5</td>
-                          td Win 95+</td>
       div(class=['contain_group3'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='svgChart')
           .contain_title
             span 类目销售额
-          label.yearSelect
-            select.selection#cselection
-              option(value="2012") 2012
-              option(value="2012") 2013
-              option(value="2012") 2014
-              option(value="2012") 2015
-              option(value="2012") 2016
+          label#yearSelect2.yearSelect
+            select#yearselection2.selection
+              each itemy2 in year
+                option(value=itemy2) #{itemy2}
+          label#monthSelect2.yearSelect
+            select#monthselection2.selection
+              each itemm2 in month
+                option(value=itemm2) #{itemm2}
+          #submit2.submitBtn 生成
           div(id='main' style='width: 900px;height:400px;')
         div(class='canvas_contain col-lg-10',id='PieCanvas')(style='display:none')
           .contain_title
@@ -133,7 +130,7 @@ html(class="no-js", lang="")
                               th 类目
                               th 销售额
                               th 占比
-                          tbody
+                          tbody#tbody3
                             tr(class=["odd", "gradeX"])
                               td Trident
                               td Internet Explorer 4.0
@@ -250,8 +247,6 @@ html(class="no-js", lang="")
                           td Trident</td>
                           td Internet Explorer 5.5</td>
                           td Win 95+</td>
-
-
 
 
     div(class='container2',id='container2')
