@@ -24,11 +24,8 @@ const router = new Router(on => {
     return component && <App context={state.context}>{component}</App>;
   });
 
-  on('/contact', async () => <ContactPage />);
 
-  on('/login', async () => <LoginPage />);
-
-  on('/register', async () => <RegisterPage />);
+  on('/future', async () => <ContactPage />);
 
   on('*', async (state) => {
     const query = `/graphql?query={content(path:"${state.path}"){path,title,content,component}}`;

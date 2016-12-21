@@ -206,3 +206,13 @@ body{
   float:right !important;
   width: 90%;
 }
+.submitBtn{
+  background-color: #7761a7;
+  color: white;
+  width: 50px;
+  height: 28px;
+  text-align: center;
+  padding: 4px;
+  display: inline-block;
+  border-radius: 4px;
+}

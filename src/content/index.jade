@@ -7,71 +7,16 @@ html(class="no-js", lang="")
     meta(name="description", description=description)
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(rel="stylesheet" type="text/css" href="css/style.css")
-    script(src = "lib/jquery.js")
+    link(rel="stylesheet" type="text/css" href="css/MutiBarChart.css")
+    link(href="lib/bootstrap.css",rel="stylesheet")
+    link(rel="stylesheet" ,type="text/css" ,href="css/datatables.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/datatable.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/tablestyle.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/timeSelect.css")
     script(src = "lib/Chart.js")
-    script(src="lib/d3.min.js")
+    script(src = "lib/jquery.js")
+    script(src="js/chartControl.js")
+    script(src="lib/exporting.js")
+
   body
-    .topbar
-      .topbody
-        a.title SMDA
-        ul.toplist
-          li
-            a 未来趋势
-          li
-            a 历史数据
-        a.username Jane Smith
-      .contain
-        .triangle
-        ul.downlist
-          li
-            a 我的账号
-          li
-            a 联系我们
-          li
-            a 退出登录
-    .container1
-      ul.nav_tabs
-        li#tag1.active 销售趋势
-        li#tag2.normal 类目趋势
-        li#tag3.normal 类目分布
-        li#tag4.normal 品牌分布
-      .canvas_contain
-        canvas#myBarChart
-      #svg_contain
-    script(src="js/barChart.js")
-    script(src="js/dynamic.js")
-    script.
-      lastClick = 'tag1';
-      currentClick = 'tag1';
-      $(document).ready(function() {
-        var width = document.body.clientWidth;
-        var height = document.body.clientHeight;
-        $('#myBarChart').css('width', width/2.335 + 'px');
-        $('#myBarChart').css('height', width/4.67 + 'px');
-        $('svg').css('width', width/2.335 + 'px');
-        $('svg').css('height', width/4.67 + 'px');
-        if(width > 1600){
-          $('.contain').css('width', '6%');
-        }
-        else{
-          $('.contain').css('width', '8%');
-          $('.contain').css('font-size', '12px');
-        }
-        $(".nav_tabs").children('li').click(function(){
-          console.log(this.id);
-          var string = this.id;
-          if(string == lastClick)
-            return;
-          else{
-            currentClick = string;
-            $('#'+lastClick).toggleClass('active normal');
-            $('#'+currentClick).toggleClass('normal active');
-            lastClick = currentClick;
-          }
-        });
-      });
-
-
-
-
-
+    h1 hello world!

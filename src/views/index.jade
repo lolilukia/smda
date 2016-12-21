@@ -16,6 +16,7 @@ html(class="no-js", lang="")
     script(src = "lib/Chart.js")
     script(src = "lib/jquery.js")
     script(src="js/chartControl.js")
+    script(src="lib/highcharts.js")
     script(src="lib/exporting.js")
 
   body
@@ -24,9 +25,9 @@ html(class="no-js", lang="")
         a.title SMDA
         ul.toplist
           li
-            a.name 未来趋势
-          li
             a.name 历史数据
+          li
+            a.name 未来趋势
 
         ul(class=["nav","navbar-nav","navbar-right","user-nav"])
           li(class=["dropdown","profile_menu"])
@@ -50,13 +51,17 @@ html(class="no-js", lang="")
         div(class='canvas_contain col-lg-10',id='barCanvas')
           .contain_title
             span 品牌销售额
-          label.yearSelect
-            select.selection#bselection
-              option(value="2012") 2012
-              option(value="2012") 2013
-              option(value="2012") 2014
-              option(value="2012") 2015
-              option(value="2012") 2016
+          -var year = ['2013','2014','2015']
+          -var month = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+          label#yearSelect.yearSelect
+            select#yearselection.selection
+              each itemy in year
+                option(value=itemy) #{itemy}
+          label#monthSelect.yearSelect
+            select#monthselection.selection
+              each itemm in month
+                option(value=itemm) #{itemm}
+          #submit.submitBtn 生成
           #myBarChart
         div(class='canvas_contain2 col-lg-10',id='Dchart')
           .contain_title
@@ -74,24 +79,15 @@ html(class="no-js", lang="")
                     table(class=['table', 'table-bordered'],id='datatable4')
                       thead
                         tr
-                          th 类目
+                          th 品牌
                           th 销售额
                           th 占比
-                      tbody
+                      tbody#tbody4
                         tr(class=["odd", "gradeX"])
-                          td Trident
-                          td Internet Explorer 4.0
-                          td Win 95+
+                          td vinda
+                          td 49.9
+                          td 22%
 
-                        tr(class=['even', 'gradeC'])
-                          td Trident
-                          td Internet Explorer 5.0
-                          td Win 95+
-
-                        tr(class=["odd", "gradeA"])
-                          td Trident</td>
-                          td Internet Explorer 5.5</td>
-                          td Win 95+</td>
       div(class=['contain_group3'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='svgChart')
           .contain_title
@@ -177,27 +173,36 @@ html(class="no-js", lang="")
                           td Internet Explorer 5.5</td>
                           td Win 95+</td>
 
-
+      script(src="lib/d3.min.js")
+      script(src="js/dynamic.js")
+      script(src="js/click.js")
       script(src="lib/bootstrap.min.js")
       script(src="js/pieChart.js")
+      script(src="lib/echarts-all-3")
       script(src="lib/echarts.min.js")
-      script(src="lib/d3.min.js")
       script(src="js/MutiBarChart.js")
       script(src="js/tablecolor.js")
       script(src="lib/jquery.jeditable.mini.js")
       script(src="lib/jquery.datatables.min.js")
       script(src="lib/datatables.js")
       script(src="js/datatable.js")
-      script(src="js/dynamic.js")
-      script(src="js/click.js")
-      script(src="lib/highcharts.js")
+
       script(src="js/barChart.js")
       script(src="js/percentagepile.js")
       script(src="js/fullwidthchart.js")
 
+      script(src="js/jPushMenu.js")
+      script(src="lib/jquery.cookie.js")
+      script(src="lib/jquery.gritter.js")
+      script(src="lib/jquery.nanoscroller.js")
+      script(src="lib/jquery.sparkline.min.js")
+      script(src="lib/jquery-ui.js")
+      script(src="js/core.js")
+      script(src="js/skycons.js")
 
-
-
-
-
-
+      script(src="lib/api")
+      script(src="lib/bmap.min.js")
+      script(src="lib/china.js")
+      script(src="lib/dataTool.min.js")
+      script(src="lib/world.js")
+      script(src="js/ScatterMap.js")
