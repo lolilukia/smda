@@ -15,7 +15,7 @@ html(class="no-js", lang="")
     link(rel="stylesheet" ,type="text/css" ,href="css/timeSelect.css")
     link(rel="stylesheet" ,type="text/css" ,href="css/rankstyle.css",media="all" )
     link(rel="stylesheet",href="css/timestyle.css",media="screen",type="text/css")
-
+    link(rel="stylesheet",type="text/css",href="css/component.css")
     script(src = "lib/Chart.js")
     script(src = "lib/jquery.js")
     script(src="js/chartControl.js")
@@ -26,10 +26,10 @@ html(class="no-js", lang="")
       .topbody
         a.title SMDA
         ul.toplist
-          li(id='2')
-            a.name 未来趋势
           li(id='1')
             a.name 历史数据
+          li(id='2')
+            a.name 未来趋势
 
         ul(class=["nav","navbar-nav","navbar-right","user-nav"])
           li(class=["dropdown","profile_menu"])
@@ -42,6 +42,12 @@ html(class="no-js", lang="")
                 a 联系我们
               li
                 a 退出登录
+    section(class="")
+      nav(class="nav-circlepop")
+        a(class="prev",href="/item1")
+          span(class="icon-wrap",id="last")
+        a(class="next",href="/item3")
+          span(class="icon-wrap",id="next")
     ul.nav_tabs#ul1
       li(id='tag1',class='normal') 销售趋势
       li(id='tag2',class='normal') 类目趋势
@@ -60,11 +66,11 @@ html(class="no-js", lang="")
               option(value="2012") 2015
               option(value="2012") 2016
           #myBarChart
-        div(class='canvas_contain col-lg-10',id='Dchart')
+        div(class='canvas_contain col-lg-10',id='Dchart')(style='display:none')
           .contain_title
             span 品牌占比情况
           #svg_contain.col-lg-10
-        div(class='canvas_contain col-lg-10',id='brand_table')
+        div(class='canvas_contain col-lg-10',id='brand_table')(style='display:none')
           .row
             .col-md-12
               .block-flat
@@ -106,7 +112,7 @@ html(class="no-js", lang="")
               option(value="2012") 2015
               option(value="2012") 2016
           div(id='main' style='width: 900px;height:400px;')
-        div(class='canvas_contain col-lg-10',id='PieCanvas')
+        div(class='canvas_contain col-lg-10',id='PieCanvas')(style='display:none')
           .contain_title
             span 类目占比情况
           .twoChart
@@ -149,14 +155,14 @@ html(class="no-js", lang="")
           .contain_title
             span 各类目销售量占比及变化趋势
           label.yearSelect
-            select.selection#bselection
+            select.selection#cbselection
               option(value="2012") 2012
               option(value="2012") 2013
               option(value="2012") 2014
               option(value="2012") 2015
               option(value="2012") 2016
           div(id='container',style='min-width:400px;height:400px')
-        div(class='canvas_contain col-lg-10',id='brand_table')
+        div(class='canvas_contain col-lg-10',id='cbrand_table')(style='display:none')
           .row
             .col-md-12
               .block-flat
@@ -214,7 +220,7 @@ html(class="no-js", lang="")
       div(class=['contain_group1'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='fristCanvas')
           #container111.col-lg-7
-        div(class='canvas_contain col-lg-10',id='sales_table')
+        div(class='canvas_contain col-lg-10',id='sales_table')(style='display:none')
           .row
             .col-md-12
               .block-flat
@@ -247,6 +253,7 @@ html(class="no-js", lang="")
 
 
 
+
     div(class='container2',id='container2')
       .contain_block1
         .contain_map
@@ -264,8 +271,8 @@ html(class="no-js", lang="")
             div(class=['col-md-3', 'col-sm-6'])
               div(class=['fd-tile', 'tile-green', 'weather'])
                 canvas(id="skychoose",width="100",height="100")
-                h2#wcity Madrid
-                h1#wvalue 18°C
+                h2#wcity 上海
+                h1#wvalue 9.5°C
       .contain_block2
         .contain_rank
           div(class=['col-md-6','left-about']) <!-- 外框，图表框宽度暂且设定的是90%，具体看效果再调 -->
@@ -290,7 +297,7 @@ html(class="no-js", lang="")
                 span 8.HTML/HTML5
                 progress(value="20" max="100")
                 span 9.HTML/HTML5
-
+    script(src="js/choose.js")
     script(src="lib/timejquery.js")
     script(src="js/index.js")
     script(src="lib/echarts-all-3.js")
