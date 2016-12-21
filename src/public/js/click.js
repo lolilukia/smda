@@ -18,6 +18,8 @@ categories = ['vinda','walch','clear','space7','may flower','拉芳','沙宣','�
 sale_amount = [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4];
 temperature = [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6];
 percentage = [22.0, 18.0, 17.0, 8.0, 3.5, 3.0, 3.0, 2.0, 2.0,2.0, 1.5, 0.5];
+lastClick2 = '1';
+currentClick2 = '1';
 $(document).ready(function() {
   drawBarChart();
   drawDynamic();
@@ -25,8 +27,8 @@ $(document).ready(function() {
   var height = document.body.clientHeight;
   $('#myBarChart').css('width', width/2.335 + 'px');
   $('#myBarChart').css('height', width/4.67 + 'px');
-  $('#container').css('width', width/2.335 + 'px');
-  $('#container').css('height', width/4.67 + 'px');
+  $('#container').css('width', width/1.8+ 'px');
+  $('#container').css('height', width/3 + 'px');
   $('#svg_contain').children('svg').css('width', width/2.335 + 'px');
   $('#svg_contain').children('svg').css('height', width/4.67 + 'px');
   if(width > 1600){
@@ -116,5 +118,23 @@ $(document).ready(function() {
         console.log(e);
       }
     });
-  })
+  });
+  $(".toplist").children('li').click(function(){
+    console.log(this.id);
+    var string = this.id;
+    if(string == lastClick2)
+      return;
+    else{
+      currentClick2 = string;
+
+      $('#container'+lastClick2).css('display','none');
+      $('#container'+currentClick2).css('display','inline-block');
+      if(lastClick2=="1")
+        $('#ul1').css('display','none');
+      else
+        $('#ul1').css('display','inline-block');
+      lastClick2 = currentClick2;
+      console.log(currentClick2);
+    }
+  });
 });

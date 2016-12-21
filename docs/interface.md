@@ -4,7 +4,7 @@
 ### 销售趋势
 ### 一年之中各月销量数据（图）
 #### 请求示例
-     10.60.36.3/smda/?r=sale-trend/do&type=month_sales&year=2013
+     10.60.36.3/smda/?r=sale-trend/do&type=month_sales&year=2013&callback=showData
 #### 请求参数
       ```
       type: 'month_sales',
@@ -22,6 +22,8 @@
       ```
 
 ### 各月销售表
+#### 请求示例
+      同上
 #### 请求参数
       ```
       type: 'sales_num',
@@ -42,22 +44,47 @@
 ### 类目趋势
 ### 各个年份每个月各类目销售占比
 #### 请求示例
-      http://10.60.36.3/smda/?r=cate-trend/do&type=category_proportion&year=2012
+      10.60.36.3/smda/?r=cate-trend/do&type=category_proportion&year=2012&callback=showData
 #### 请求参数
       ```
       type: 'category_proportion',
       year: '2016'
-      month: '1'
       ```
-#### 返回JSON示例 //返回的数据均不必带有单位
-#### category选取9个类目，category_proportion对应每个品牌的月销售占比（百分多少）,无单位
+#### 返回JSON示例 
+#### category选取9个类目，category_proportion对应每个品牌的月销售额，单位随意，统一就好，因为后面会自动转化成百分比
       ```
       {
-        {category: 'skincare', category_proportion: 34.6}  
-      ...                                                   
+        name: '洗发沐浴/个人清洁',
+        data: [502, 635, 809, 947, 1402, 3634, 5268,6584,7125,8547,8965,9021]
+      }, {
+        name: '卫生巾/护垫/成人尿裤',
+        data: [106, 107, 111, 133, 221, 767, 1766,2561,2965,3021,3564,4521]
+      }, {
+        name: '衣物清洁剂/护理剂',
+        data: [163, 203, 276, 408, 547, 729, 628,754,856,912,1024,2547]
+      }, {
+        name: '驱虫用品',
+        data: [18, 31, 54, 156, 339, 818, 1201,1356,1578,1965,2547,2987]
+      },{
+        name: '香薰用品',
+        data: [18, 31, 54, 156, 339, 818, 1201,1356,1578,1965,2547,2987]
+      },{
+        name: '家私/皮具护理品',
+        data: [106, 107, 111, 133, 221, 767, 1766,2561,2965,3021,3564,4521]
+      },{
+        name: '纸品/湿巾',
+        data: [18, 31, 54, 156, 339, 818, 1201,1356,1578,1965,2547,2987]
+      },{
+        name: '家庭环境清洁剂',
+        data: [18, 31, 54, 156, 339, 818, 1201,1356,1578,1965,2547,2987]
+      },{
+        name: '室内除臭/芳香用品',
+        data: [106, 107, 111, 133, 221, 767, 1766,2561,2965,3021,3564,4521]
       }
-      ```
+
 ### 各类目占比详情
+#### 请求示例
+      10.60.36.3/smda/?r=cate-trend/do&type=detailed_cate_Proportion&year=2012&callback=showData
 #### 请求参数
       ```
       type: 'detailed_cate_Proportion ',
@@ -91,7 +118,7 @@
 
         ```
 #### 请求示例
-    10.60.36.3/smda/?r=cate-dist/do&type=cate_sales&year=2012&category=1
+    10.60.36.3/smda/?r=cate-dist/do&type=cate_sales&year=2012&category=1&callback=showData
 #### 请求参数（年份和类目名称）
     ```
        year：'2012'
@@ -112,7 +139,7 @@
 
         ```
 #### 请求示例
-    10.60.36.3/smda/?r=cate-dist/do&type=temperature&year=2012
+    10.60.36.3/smda/?r=cate-dist/do&type=temperature&year=2012&callback=showData
 #### 请求参数（年份）
     ```
        year：'2012'
@@ -124,7 +151,7 @@
     ```
 ### 类目排行
 #### 请求示例
-    10.60.36.3/smda/?r=cate-dist/do&type=ranking&year=2012&month=1
+    10.60.36.3/smda/?r=cate-dist/do&type=ranking&year=2012&month=1&callback=showData
 #### 请求参数
       ```
       type: 'ranking',
@@ -146,7 +173,7 @@
 ### 品牌分布
 ### 天气和销售额的关系
 #### 请求示例
-      http://10.60.36.3/smda/?r=brand-dist/do&type=sale_amount&year=2012&month=6
+      10.60.36.3/smda/?r=brand-dist/do&type=sale_amount&year=2012&month=6&callback=showData
 #### 请求参数
       ```
       type: 'sale_amount',
@@ -163,7 +190,7 @@
       ```
 ### 品牌市场份额（所有品牌的总数据）
 #### 请求示例
-      http://10.60.36.3/smda/?r=brand-dist/do&type=market_shares&year=2013
+      10.60.36.3/smda/?r=brand-dist/do&type=market_shares&year=2013&callback=showData
 #### 请求参数
       ```
       type: 'market_shares',
@@ -205,3 +232,18 @@
        ...                                                    
       }
       ```
+### 未来各类商品销售排行榜
+#### 请求示例
+     10.60.36.13:8009/smda/?r=cate-rank/do&type=cate_rank&callback=showdata
+#### 请求参数
+      ```
+      type: 'cate_rank',
+      callback: 'showdata'    
+      ```
+#### 返回JSON示例
+#### 按销售额从大到小排序，category代表商品类目，sale_amount对应每个类目2016年12月的销售额,单位为千万元
+      ```
+      {
+        {"category": "纸品/湿巾","sale_amount":297083785}  
+       ...                                                    
+      }    

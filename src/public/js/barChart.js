@@ -49,7 +49,7 @@ function drawBarChart() {
       align: 'left',
       x: 120,
       verticalAlign: 'top',
-      y: 100,
+      y: 50,
       floating: true,
       backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
     },

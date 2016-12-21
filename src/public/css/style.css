@@ -87,7 +87,11 @@ body{
 }
 .container1{
   margin: 0 auto;
-  max-width: 87%;
+  max-width: 80%;
+}
+.container2{
+  margin: 0 auto;
+  max-width: 90%;
 }
 .nav_tabs{
   list-style: none;
@@ -97,7 +101,7 @@ body{
   display: inline-block;
   vertical-align: top;
   background-color: #eeeeee;
-  margin-left: 8%;
+  margin-left: 13%;
 }
 .nav_tabs a{
   text-decoration: none;
@@ -136,9 +140,12 @@ body{
   display: inline-block;
   vertical-align: top;
   background-color: white;
-  padding: 2% 7% 10% 7%;
-  height: 500px;
-  float: right !important;
+  margin: 0% 0% 5% 0%;
+  width:100%;
+  min-height: 500px;
+  height:auto;
+  overflow: auto;
+
 }
 .canvas_contain2{
   display: inline-block;
@@ -166,7 +173,7 @@ body{
 
 #myPieChart{
   width: 500px;
-  height: 400px;
+  height: 300px;
 }
 
 .line {
@@ -177,21 +184,22 @@ body{
 
 .twoChart1{
   width: 400px;
-  height: 400px;
-  float:left;
-  display:inline;
-
-}
-.twoChart2{
-  width: 500px;
   height: 300px;
   float:left;
   display:inline;
-  padding-left: 100px;
+  margin-top: 100px;
+
+}
+.twoChart2{
+  width: 450px;
+  height: 300px;
+  float:left;
+  display:inline;
+
 
 }
 .twoChart{
-  width: 1000px;
+  width: 850px;
   height: 600px;
 }
 .contain_title{
@@ -203,8 +211,48 @@ body{
   border-bottom: 1px solid #dddddd;
 }
 .contain_group1,.contain_group2,.contain_group3,.contain_group4{
-  float:right !important;
-  width: 90%;
+
+  margin-top:1%;
+  margin-bottom: 2%;
+}
+.contain_map{
+  padding-left: 10%;
+  padding-top: 5%;
+  width:65%;
+  float: left;
+}
+.contain_rank{
+  margin: 2% 5% 2% 5%;
+
+
+}
+.contain_block1{
+  margin: 2% 10% 2% 15%;
+  width: 80%;
+  height: 500px;
+  background-color: white;
+}
+.contain_block2{
+  margin: 2% 10% 10% 15%;
+  width: 80%;
+  height: auto;
+  min-height: 500px;
+  background-color: white;
+  overflow: auto;
+
+}
+.contain_time{
+  padding-top: 5%;
+  padding-left:50%;
+
+}
+.contain_weather{
+
+  padding-top: 15.8%;
+  padding-left:5%;
+}
+#main{
+  margin:20px;
 }
 .submitBtn{
   background-color: #7761a7;

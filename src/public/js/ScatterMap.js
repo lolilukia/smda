@@ -56,7 +56,11 @@ var convertData = function (data) {
 option = {
   backgroundColor: '#404a59',
   title: {
+<<<<<<< HEAD
     text: '全国主要城市空气质量',
+=======
+    text: '全国主要城市气温',
+>>>>>>> origin/master
     subtext: 'data from PM25.in',
     sublink: 'http://www.pm25.in',
     x:'center',
@@ -67,6 +71,7 @@ option = {
   tooltip: {
     trigger: 'item',
     formatter: function (params) {
+
       return params.name + ' : ' + params.value[2];
     }
   },
@@ -109,7 +114,11 @@ option = {
   },
   series: [
     {
+<<<<<<< HEAD
       name: 'pm2.5',
+=======
+      name: '气温',
+>>>>>>> origin/master
       type: 'scatter',
       coordinateSystem: 'geo',
       data: convertData([
@@ -164,4 +173,12 @@ option = {
 };
 if (option && typeof option === "object") {
   myChart.setOption(option, true);
+
+  myChart.on('click', function (params) {
+    // 控制台打印数据的名称
+    console.log(params.name);
+    document.getElementById("wcity").innerHTML=params.name;
+    document.getElementById("wvalue").innerHTML=params.value[2]+"℃";
+  });
+
 }

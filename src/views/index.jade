@@ -13,6 +13,9 @@ html(class="no-js", lang="")
     link(rel="stylesheet" ,type="text/css" ,href="css/datatable.css")
     link(rel="stylesheet" ,type="text/css" ,href="css/tablestyle.css")
     link(rel="stylesheet" ,type="text/css" ,href="css/timeSelect.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/rankstyle.css",media="all" )
+    link(rel="stylesheet",href="css/timestyle.css",media="screen",type="text/css")
+
     script(src = "lib/Chart.js")
     script(src = "lib/jquery.js")
     script(src="js/chartControl.js")
@@ -24,11 +27,10 @@ html(class="no-js", lang="")
       .topbody
         a.title SMDA
         ul.toplist
-          li
-            a.name 历史数据
-          li
+          li(id='2')
             a.name 未来趋势
-
+          li(id='1')
+            a.name 历史数据
         ul(class=["nav","navbar-nav","navbar-right","user-nav"])
           li(class=["dropdown","profile_menu"])
             a(href="#",class="dropdown-toggle",data-toggle="dropdown")
@@ -40,13 +42,12 @@ html(class="no-js", lang="")
                 a 联系我们
               li
                 a 退出登录
-
-    .container1
-      ul.nav_tabs
-        li(id='tag1',class='normal') 销售趋势
-        li(id='tag2',class='normal') 类目趋势
-        li(id='tag3',class='normal') 类目分布
-        li(id='tag4',class='active') 品牌分布
+    ul.nav_tabs#ul1
+      li(id='tag1',class='normal') 销售趋势
+      li(id='tag2',class='normal') 类目趋势
+      li(id='tag3',class='normal') 类目分布
+      li(id='tag4',class='active') 品牌分布
+    div(class='container1',id='container1')(style='display:inline-block')
       div(class=['contain_group4'])(style='display:inline-block')
         div(class='canvas_contain col-lg-10',id='barCanvas')
           .contain_title
@@ -63,11 +64,11 @@ html(class="no-js", lang="")
                 option(value=itemm) #{itemm}
           #submit.submitBtn 生成
           #myBarChart
-        div(class='canvas_contain2 col-lg-10',id='Dchart')
+        div(class='canvas_contain col-lg-10',id='Dchart')
           .contain_title
             span 品牌占比情况
           #svg_contain.col-lg-10
-        div(class='table_contain2 col-lg-10',id='brand_table')
+        div(class='canvas_contain col-lg-10',id='brand_table')
           .row
             .col-md-12
               .block-flat
@@ -99,8 +100,8 @@ html(class="no-js", lang="")
               option(value="2012") 2014
               option(value="2012") 2015
               option(value="2012") 2016
-          div(id='main' style='width: 800px;height:400px;')
-        div(class='canvas_contain2 col-lg-10',id='PieCanvas')
+          div(id='main' style='width: 900px;height:400px;')
+        div(class='canvas_contain col-lg-10',id='PieCanvas')
           .contain_title
             span 类目占比情况
           .twoChart
@@ -136,13 +137,79 @@ html(class="no-js", lang="")
                               td Trident</td>
                               td Internet Explorer 5.5</td>
                               td Win 95+</td>
+
       div(class=['contain_group2'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='categoryTendency')
+
+          .contain_title
+            span 各类目销售量占比及变化趋势
+          label.yearSelect
+            select.selection#bselection
+              option(value="2012") 2012
+              option(value="2012") 2013
+              option(value="2012") 2014
+              option(value="2012") 2015
+              option(value="2012") 2016
           div(id='container',style='min-width:400px;height:400px')
+        div(class='canvas_contain col-lg-10',id='brand_table')
+          .row
+            .col-md-12
+              .block-flat
+                .header
+                  h3 各类目占比详情
+                .content
+                  .table-responsive
+                    table(class=['table', 'table-bordered'],id='datatable2')
+                      thead
+                        tr
+                          th 类目
+                          th 1月
+                          th 2月
+                          th 3月
+                          th 4月
+                          th 5月
+                          th 6月
+                          th 7月
+                          th 8月
+                          th 9月
+                          th 10月
+                          th 11月
+                          th 12月
+                      tbody
+                        tr(class=["odd", "gradeX"])
+                          td 1.洗发沐浴/个人清洁
+                          td Internet Explorer 4.0
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                        tr(class=["odd", "gradeX"])
+                          td 1.洗发沐浴/个人清洁
+                          td Internet Explorer 4.0
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+
+
       div(class=['contain_group1'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='fristCanvas')
           #container111.col-lg-7
-        div(class='table_contain2 col-lg-10',id='sales_table')
+        div(class='canvas_contain col-lg-10',id='sales_table')
           .row
             .col-md-12
               .block-flat
@@ -173,36 +240,89 @@ html(class="no-js", lang="")
                           td Internet Explorer 5.5</td>
                           td Win 95+</td>
 
-      script(src="lib/d3.min.js")
-      script(src="js/dynamic.js")
-      script(src="js/click.js")
-      script(src="lib/bootstrap.min.js")
-      script(src="js/pieChart.js")
-      script(src="lib/echarts-all-3")
-      script(src="lib/echarts.min.js")
-      script(src="js/MutiBarChart.js")
-      script(src="js/tablecolor.js")
-      script(src="lib/jquery.jeditable.mini.js")
-      script(src="lib/jquery.datatables.min.js")
-      script(src="lib/datatables.js")
-      script(src="js/datatable.js")
 
-      script(src="js/barChart.js")
-      script(src="js/percentagepile.js")
-      script(src="js/fullwidthchart.js")
+    div(class='container2',id='container2')
+      .contain_block1
+        .contain_map
+          div(id="scattermap",style="height:400px")
+        .contain_time
+          #wrapper
+            form
+              select(class='custom-date',name='select')
+                option(value='1') 1 Days
+                option(value='3') 3 Days
+                option(value='6') 6 Days
+                option(value='') custom Days
+        .contain_weather
+          .row
+            div(class=['col-md-3', 'col-sm-6'])
+              div(class=['fd-tile', 'tile-green', 'weather'])
+                canvas(id="skychoose",width="100",height="100")
+                h2#wcity Madrid
+                h1#wvalue 18°C
+      .contain_block2
+        .contain_rank
+          div(class=['col-md-6','left-about']) <!-- 外框，图表框宽度暂且设定的是90%，具体看效果再调 -->
+            .sales_ranking1
+              h4 Rinking
+              #skills
+                progress(value="100" max="100")
+                span 1.HTML/HTML5
+                progress(value="85" max="100")
+                span 2.CSS/CSS3
+                progress(value="75" max="100")
+                span 3.Photoshop / IlLustrator
+                progress(value="65" max="100")
+                span 4.Photoshop / IlLustrator
+                progress(value="52" max="100")
+                span 5.HTML/HTML5
+                progress(value="44" max="100")
+                span 6.HTML/HTML5
+                progress(value="33" max="100")
+                span 7.HTML/HTML5
+                progress(value="22" max="100")
+                span 8.HTML/HTML5
+                progress(value="20" max="100")
+                span 9.HTML/HTML5
 
-      script(src="js/jPushMenu.js")
-      script(src="lib/jquery.cookie.js")
-      script(src="lib/jquery.gritter.js")
-      script(src="lib/jquery.nanoscroller.js")
-      script(src="lib/jquery.sparkline.min.js")
-      script(src="lib/jquery-ui.js")
-      script(src="js/core.js")
-      script(src="js/skycons.js")
+    script(src="lib/timejquery.js")
+    script(src="js/index.js")
+    script(src="lib/echarts-all-3.js")
+    script(src="lib/dataTool.min.js")
+    script(src="lib/china.js")
+    script(src="lib/world.js")
+    script(src="lib/api")
+    script(src="lib/bmap.min.js")
+    script(src="js/ScatterMap.js")
+    script(src="lib/bootstrap.min.js")
+    script(src="js/pieChart.js")
+    script(src="lib/echarts.min.js")
+    script(src="lib/d3.min.js")
+    script(src="js/MutiBarChart.js")
+    script(src="js/tablecolor.js")
+    script(src="lib/jquery.jeditable.mini.js")
+    script(src="lib/jquery.datatables.min.js")
+    script(src="lib/datatables.js")
+    script(src="js/datatable.js")
+    script(src="js/dynamic.js")
+    script(src="js/click.js")
+    script(src="lib/highcharts.js")
+    script(src="js/barChart.js")
+    script(src="js/percentagepile.js")
+    script(src="js/fullwidthchart.js")
+    script(src="js/weather.js")
+    script(src="lib/jPushMenu.js")
+    script(src="lib/jquery.cookie.js")
+    script(src="lib/jquery.nanoscroller.js")
+    script(src="libe/jquery.sparkline.min.js")
+    script(src="lib/jquery-ui.js")
+    script(src="lib/jquery.gritter.js")
+    script(src="lib/core.js")
+    script(src="lib/skycons.js")
 
-      script(src="lib/api")
-      script(src="lib/bmap.min.js")
-      script(src="lib/china.js")
-      script(src="lib/dataTool.min.js")
-      script(src="lib/world.js")
-      script(src="js/ScatterMap.js")
+
+
+
+
+
+>>>>>>> origin/master
