@@ -2,8 +2,9 @@
  * Created by Lele on 2016/12/14.
  */
 function drawPercentagePile() {
-  $('#container').highcharts({
+  var chart=new Highcharts.Chart({
     chart: {
+      renderTo: 'container',
       type: 'area'
     },
     credits: {enabled: false},
@@ -41,5 +42,6 @@ function drawPercentagePile() {
       }
     },
     series: trendData
+
   });
 };
