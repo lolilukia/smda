@@ -11,7 +11,7 @@ import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './NotFoundPage.scss';
 
-const title = 'Page Not Found';
+const title = '气候在手，销售无忧';
 
 class NotFoundPage extends Component {
 
