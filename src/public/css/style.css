@@ -199,7 +199,7 @@ body{
 
 }
 .twoChart{
-  width: 1000px;
+  width: 850px;
   height: 600px;
 }
 .contain_title{
@@ -251,6 +251,6 @@ body{
   padding-top: 15.8%;
   padding-left:5%;
 }
-.main{
+#main{
   margin:20px;
 }
