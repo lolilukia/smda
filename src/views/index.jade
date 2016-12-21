@@ -13,6 +13,8 @@ html(class="no-js", lang="")
     link(rel="stylesheet" ,type="text/css" ,href="css/datatable.css")
     link(rel="stylesheet" ,type="text/css" ,href="css/tablestyle.css")
     link(rel="stylesheet" ,type="text/css" ,href="css/timeSelect.css")
+    link(rel="stylesheet" ,type="text/css" ,href="css/rankstyle.css",media="all" )
+    link(rel="stylesheet",href="css/timestyle.css",media="screen",type="text/css")
     script(src = "lib/Chart.js")
     script(src = "lib/jquery.js")
     script(src="js/chartControl.js")
@@ -23,9 +25,9 @@ html(class="no-js", lang="")
       .topbody
         a.title SMDA
         ul.toplist
-          li
+          li(id='1')
             a.name 未来趋势
-          li
+          li(id='2')
             a.name 历史数据
 
         ul(class=["nav","navbar-nav","navbar-right","user-nav"])
@@ -40,7 +42,7 @@ html(class="no-js", lang="")
               li
                 a 退出登录
 
-    .container1
+    div(class='container1',id='container1')(style='display:inline-block')
       ul.nav_tabs
         li(id='tag1',class='normal') 销售趋势
         li(id='tag2',class='normal') 类目趋势
@@ -178,23 +180,84 @@ html(class="no-js", lang="")
                           td Win 95+</td>
 
 
-      script(src="lib/bootstrap.min.js")
-      script(src="js/pieChart.js")
-      script(src="lib/echarts.min.js")
-      script(src="lib/d3.min.js")
-      script(src="js/MutiBarChart.js")
-      script(src="js/tablecolor.js")
-      script(src="lib/jquery.jeditable.mini.js")
-      script(src="lib/jquery.datatables.min.js")
-      script(src="lib/datatables.js")
-      script(src="js/datatable.js")
-      script(src="js/dynamic.js")
-      script(src="js/click.js")
-      script(src="lib/highcharts.js")
-      script(src="js/barChart.js")
-      script(src="js/percentagepile.js")
-      script(src="js/fullwidthchart.js")
 
+    div(class='container1',id='container2')
+      .contain_block1
+        .contain_map
+          div(id="scattermap",style="height:400px")
+        .contain_time
+          #wrapper
+            form
+              select(class='custom-date',name='select')
+                option(value='1') 1 Days
+                option(value='3') 3 Days
+                option(value='6') 6 Days
+                option(value='') custom Days
+        .contain_weather
+          .row
+            div(class=['col-md-3', 'col-sm-6'])
+              div(class=['fd-tile', 'tile-green', 'weather'])
+                canvas(id="skychoose",width="100",height="100")
+                h2#wcity Madrid
+                h1#wvalue 18°C
+      .contain_block2
+        .contain_rank
+          div(class=['col-md-6','left-about']) <!-- 外框，图表框宽度暂且设定的是90%，具体看效果再调 -->
+            .sales_ranking1
+              h4 Rinking
+              #skills
+                progress(value="70" max="100")
+                span 1.HTML/HTML5
+                progress(value="95" max="100")
+                span 2.CSS/CSS3
+                progress(value="85" max="100")
+                span 3.Photoshop / IlLustrator
+                progress(value="85" max="100")
+                span 4.Photoshop / IlLustrator
+                progress(value="70" max="100")
+                span 5.HTML/HTML5
+                progress(value="60" max="100")
+                span 6.HTML/HTML5
+                progress(value="60" max="100")
+                span 7.HTML/HTML5
+                progress(value="60" max="100")
+                span 8.HTML/HTML5
+                progress(value="70" max="100")
+                span 9.HTML/HTML5
+    script(src="lib/timejquery.js")
+    script(src="js/index.js")
+    script(src="lib/echarts-all-3.js")
+    script(src="lib/dataTool.min.js")
+    script(src="lib/china.js")
+    script(src="lib/world.js")
+    script(src="lib/api")
+    script(src="lib/bmap.min.js")
+    script(src="js/ScatterMap.js")
+    script(src="lib/bootstrap.min.js")
+    script(src="js/pieChart.js")
+    script(src="lib/echarts.min.js")
+    script(src="lib/d3.min.js")
+    script(src="js/MutiBarChart.js")
+    script(src="js/tablecolor.js")
+    script(src="lib/jquery.jeditable.mini.js")
+    script(src="lib/jquery.datatables.min.js")
+    script(src="lib/datatables.js")
+    script(src="js/datatable.js")
+    script(src="js/dynamic.js")
+    script(src="js/click.js")
+    script(src="lib/highcharts.js")
+    script(src="js/barChart.js")
+    script(src="js/percentagepile.js")
+    script(src="js/fullwidthchart.js")
+    script(src="js/weather.js")
+    script(src="lib/jPushMenu.js")
+    script(src="lib/jquery.cookie.js")
+    script(src="lib/jquery.nanoscroller.js")
+    script(src="libe/jquery.sparkline.min.js")
+    script(src="lib/jquery-ui.js")
+    script(src="lib/jquery.gritter.js")
+    script(src="lib/core.js")
+    script(src="lib/skycons.js")
 
 
 

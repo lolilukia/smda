@@ -1,5 +1,7 @@
 lastClick = 'tag4';
 currentClick = 'tag4';
+lastClick2 = '1';
+currentClick2 = '1';
 $(document).ready(function() {
   var width = document.body.clientWidth;
   var height = document.body.clientHeight;
@@ -31,6 +33,21 @@ $(document).ready(function() {
       $('.contain_group'+currentClick.substring(3,4)).css('display','inline-block');
       lastClick = currentClick;
       console.log(currentClick.substring(3,4));
+    }
+  });
+
+  $(".toplist").children('li').click(function(){
+    console.log(this.id);
+    var string = this.id;
+    if(string == lastClick2)
+      return;
+    else{
+      currentClick2 = string;
+
+      $('#container'+lastClick2).css('display','none');
+      $('#container'+currentClick2).css('display','inline-block');
+      lastClick2 = currentClick2;
+      console.log(currentClick2);
     }
   });
 });
