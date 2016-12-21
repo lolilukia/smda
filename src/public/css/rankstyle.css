@@ -1,0 +1,63 @@
+
+.sales_ranking1 h4 {
+  font-size: 1.7em;
+  color: #3674ba;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+/*****小字字体*******/
+#skills span {
+  top: -30px;
+  left: 720px;
+  position: relative;
+  font-size: 1.2em;
+  color: #3674ba;
+  font-weight: 400;
+
+}
+/*****图表框高度，宽度*******/
+progress {
+  background-color: #f1f1f1;
+  border: 0;
+  height: 1.5em;
+  width: 700px;
+}
+
+/*****这三个控制图表蓝色条，灰色背景*******/
+progress::-webkit-progress-bar {
+  background-color:#C7C7C7;
+}
+progress::-webkit-progress-value {
+  background-color: #3674ba;
+}
+progress::-moz-progress-bar {
+  background-color: #3674ba;
+}
+/**************/
+.sales_ranking1 {
+  margin-top: 1em;
+}
+
+/*****删了标题字体就变了*******/
+@media (max-width: 320px) {
+
+  .left-grid {
+    float: none;
+    width: 100%;
+  }
+
+  .left-grid img {
+    width: 65%;
+    margin: 0 auto;
+  }
+
+  .sales_ranking1 h4 {
+    font-size: 1em;
+  }
+
+  .left-about {
+    padding: 0;
+  }
+
+}

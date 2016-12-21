@@ -166,7 +166,7 @@ body{
 
 #myPieChart{
   width: 500px;
-  height: 400px;
+  height: 300px;
 }
 
 .line {
@@ -177,7 +177,7 @@ body{
 
 .twoChart1{
   width: 400px;
-  height: 400px;
+  height: 300px;
   float:left;
   display:inline;
 
@@ -205,4 +205,40 @@ body{
 .contain_group1,.contain_group2,.contain_group3,.contain_group4{
   float:right !important;
   width: 90%;
+}
+.contain_map{
+  padding-left: 5%;
+  padding-top: 5%;
+  width:60%;
+  float: left;
+}
+.contain_rank{
+  margin: 2% 5% 2% 5%;
+
+
+}
+.contain_block1{
+  margin: 2% 15% 2% 15%;
+  width: 90%;
+  height: 500px;
+  background-color: white;
+}
+.contain_block2{
+  margin: 2% 15% 10% 15%;
+  width: 90%;
+  height: auto;
+  min-height: 500px;
+  background-color: white;
+  overflow: auto;
+
+}
+.contain_time{
+  padding-top: 5%;
+  padding-left: 50%;
+
+}
+.contain_weather{
+
+  padding-top: 5%;
+  padding-left:5%;
 }
