@@ -93,13 +93,15 @@ html(class="no-js", lang="")
         div(class='canvas_contain col-lg-10',id='svgChart')
           .contain_title
             span 类目销售额
-          label.yearSelect
-            select.selection#cselection
-              option(value="2012") 2012
-              option(value="2012") 2013
-              option(value="2012") 2014
-              option(value="2012") 2015
-              option(value="2012") 2016
+          label#yearSelect2.yearSelect
+            select#yearselection2.selection
+              each itemy2 in year
+                option(value=itemy2) #{itemy2}
+          label#monthSelect2.yearSelect
+            select#monthselection2.selection
+              each itemm2 in month
+                option(value=itemm2) #{itemm2}
+          #submit2.submitBtn 生成
           div(id='main' style='width: 900px;height:400px;')
         div(class='canvas_contain col-lg-10',id='PieCanvas')
           .contain_title
@@ -122,7 +124,7 @@ html(class="no-js", lang="")
                               th 类目
                               th 销售额
                               th 占比
-                          tbody
+                          tbody#tbody3
                             tr(class=["odd", "gradeX"])
                               td Trident
                               td Internet Explorer 4.0
