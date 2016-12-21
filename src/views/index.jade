@@ -142,9 +142,73 @@ html(class="no-js", lang="")
                               td Trident</td>
                               td Internet Explorer 5.5</td>
                               td Win 95+</td>
+
       div(class=['contain_group2'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='categoryTendency')
+          .contain_title
+            span 各类目销售量占比及变化趋势
+          label.yearSelect
+            select.selection#bselection
+              option(value="2012") 2012
+              option(value="2012") 2013
+              option(value="2012") 2014
+              option(value="2012") 2015
+              option(value="2012") 2016
           div(id='container',style='min-width:400px;height:400px')
+        div(class='table_contain2 col-lg-10',id='brand_table')
+          .row
+            .col-md-12
+              .block-flat
+                .header
+                  h3 各类目占比详情
+                .content
+                  .table-responsive
+                    table(class=['table', 'table-bordered'],id='datatable2')
+                      thead
+                        tr
+                          th 类目
+                          th 1月
+                          th 2月
+                          th 3月
+                          th 4月
+                          th 5月
+                          th 6月
+                          th 7月
+                          th 8月
+                          th 9月
+                          th 10月
+                          th 11月
+                          th 12月
+                      tbody
+                        tr(class=["odd", "gradeX"])
+                          td 1.洗发沐浴/个人清洁
+                          td Internet Explorer 4.0
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                        tr(class=["odd", "gradeX"])
+                          td 1.洗发沐浴/个人清洁
+                          td Internet Explorer 4.0
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+                          td Win 95+
+
       div(class=['contain_group1'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='fristCanvas')
           #container111.col-lg-7

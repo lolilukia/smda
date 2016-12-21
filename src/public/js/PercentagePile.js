@@ -8,7 +8,7 @@ $(function () {
     },
     credits: {enabled: false},
     title: {
-      text: '各月份各类目销售占比及变化趋势'
+      text: ''
     },
     /* subtitle: {
      text: 'Source: Wikipedia.org'
