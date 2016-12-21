@@ -2,6 +2,9 @@ lastClick = 'tag4';
 currentClick = 'tag4';
 lastClick2 = '1';
 currentClick2 = '1';
+lastnum=0;
+chartnum=3;
+chartname = ['barCanvas', 'Dchart', 'brand_table'];
 $(document).ready(function() {
   var width = document.body.clientWidth;
   var height = document.body.clientHeight;
@@ -33,6 +36,31 @@ $(document).ready(function() {
       $('.contain_group'+currentClick.substring(3,4)).css('display','inline-block');
       lastClick = currentClick;
       console.log(currentClick.substring(3,4));
+      if(currentClick.substring(3,4)=='1') {
+        lastnum=0;
+        chartnum = 2;
+        chartname = ['fristCanvas', 'sales_table'];
+      }
+
+      if(currentClick.substring(3,4)=='2') {
+        lastnum=0;
+        chartnum = 2;
+        chartname = ['categoryTendency', 'cbrand_table'];
+      }
+
+      if(currentClick.substring(3,4)=='3') {
+        lastnum=0;
+        chartnum = 2;
+        chartname = ['svgChart', 'PieCanvas'];
+      }
+
+      if(currentClick.substring(3,4)=='4') {
+        lastnum=0;
+        chartnum = 3;
+        chartname = ['barCanvas', 'Dchart', 'brand_table'];
+        console.log(currentClick.substring(3, 4));
+      }
+
     }
   });
 
@@ -53,5 +81,36 @@ $(document).ready(function() {
       lastClick2 = currentClick2;
       console.log(currentClick2);
     }
+  });
+
+  $("#last").click(function(){
+    var lastname=chartname[lastnum];
+    console.log(lastnum);
+    console.log(lastname);
+    lastnum--;
+    if(lastnum<0)
+      lastnum=chartnum-1;
+    var currentname=chartname[lastnum];
+    console.log(lastnum);
+    console.log(currentname);
+    document.getElementById(lastname).style.display='none';
+    document.getElementById(currentname).className='canvas_contain col-lg-10';
+    document.getElementById(currentname).style.display='inline-block';
+
+  });
+  $("#next").click(function(){
+    var lastname=chartname[lastnum];
+    console.log(lastnum);
+    console.log(lastname);
+    lastnum++;
+    if(lastnum==chartnum)
+      lastnum=0;
+    var currentname=chartname[lastnum];
+    console.log(lastnum);
+    console.log(currentname);
+    document.getElementById(lastname).style.display='none';
+    document.getElementById(currentname).className='canvas_contain col-lg-10';
+    document.getElementById(currentname).style.display='inline-block';
+
   });
 });

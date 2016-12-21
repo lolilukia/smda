@@ -139,12 +139,12 @@ body{
 .canvas_contain{
   display: inline-block;
   vertical-align: top;
-  background-color: white;
+
   margin: 0% 0% 5% 0%;
   width:100%;
   min-height: 500px;
   height:auto;
-  overflow: auto;
+
 
 }
 .canvas_contain2{
@@ -212,8 +212,11 @@ body{
 }
 .contain_group1,.contain_group2,.contain_group3,.contain_group4{
 
-  margin-top:1%;
+  margin-top: 1%;
   margin-bottom: 2%;
+  background-color: white;
+  width: 1000px;
+  height: 600px;
 }
 .contain_map{
   padding-left: 10%;
