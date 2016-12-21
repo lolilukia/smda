@@ -234,11 +234,12 @@
       ```
 ### 未来各类商品销售排行榜
 #### 请求示例
-     10.60.36.13:8009/smda/?r=cate-rank/do&type=cate_rank&callback=showdata
+    http://10.60.36.13:8009/smda/?r=cate-rank/do&type=cate_rank&callback=showdata&city=武汉
 #### 请求参数
       ```
       type: 'cate_rank',
-      callback: 'showdata'    
+      callback: 'showdata'
+      city:'武汉'
       ```
 #### 返回JSON示例
 #### 按销售额从大到小排序，category代表商品类目，sale_amount对应每个类目2016年12月的销售额,单位为千万元
