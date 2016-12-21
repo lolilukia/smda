@@ -1,5 +1,10 @@
 lastClick = 'tag4';
 currentClick = 'tag4';
+lastClick2 = '1';
+currentClick2 = '1';
+lastnum=0;
+chartnum=3;
+chartname = ['barCanvas', 'Dchart', 'brand_table'];
 svgChart = [
   {symbol:"MSFT",date:"Jan 2000",price:"39.81"},
   {symbol:"MSFT",date:"Feb 2000",price:"36.35"},
@@ -111,17 +116,19 @@ trendData = [{
   name: '室内除臭/芳香用品',
   data: [0.0256,0.025,0.0296,0.0309,0.034,0.0392,0.0384,0.0347,0.0355,0.029,0.0272,0.027]
 }];
-lastClick2 = '1';
-currentClick2 = '1';
-lastnum=0;
-chartnum=3;
-chartname = ['barCanvas', 'Dchart', 'brand_table'];
+
 $(document).ready(function() {
+
   drawBarChart();
+
   drawDynamic();
+
   drawMutiChart();
+
   drawPieChart();
+
   drawPercentagePile();
+
   var width = document.body.clientWidth;
   var height = document.body.clientHeight;
   $('#myBarChart').css('width', width/2.335 + 'px');

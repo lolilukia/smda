@@ -110,11 +110,7 @@ option = {
   },
   series: [
     {
-<<<<<<< HEAD
-      name: 'pm2.5',
-=======
       name: '气温',
->>>>>>> origin/master
       type: 'scatter',
       coordinateSystem: 'geo',
       data: convertData([
