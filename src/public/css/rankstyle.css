@@ -9,7 +9,7 @@
 /*****小字字体*******/
 #skills span {
   top: -30px;
-  left: 720px;
+  left: 620px;
   position: relative;
   font-size: 1.2em;
   color: #3674ba;
@@ -21,7 +21,7 @@ progress {
   background-color: #f1f1f1;
   border: 0;
   height: 1.5em;
-  width: 700px;
+  width: 600px;
 }
 
 /*****这三个控制图表蓝色条，灰色背景*******/

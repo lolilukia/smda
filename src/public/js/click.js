@@ -7,8 +7,8 @@ $(document).ready(function() {
   var height = document.body.clientHeight;
   $('#myBarChart').css('width', width/2.335 + 'px');
   $('#myBarChart').css('height', width/4.67 + 'px');
-  $('#container').css('width', width/2.335 + 'px');
-  $('#container').css('height', width/4.67 + 'px');
+  $('#container').css('width', width/1.8+ 'px');
+  $('#container').css('height', width/3 + 'px');
   $('#svg_contain').children('svg').css('width', width/2.335 + 'px');
   $('#svg_contain').children('svg').css('height', width/4.67 + 'px');
   if(width > 1600){
@@ -46,6 +46,10 @@ $(document).ready(function() {
 
       $('#container'+lastClick2).css('display','none');
       $('#container'+currentClick2).css('display','inline-block');
+      if(lastClick2=="1")
+        $('#ul1').css('display','none');
+      else
+        $('#ul1').css('display','inline-block');
       lastClick2 = currentClick2;
       console.log(currentClick2);
     }

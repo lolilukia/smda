@@ -25,9 +25,9 @@ html(class="no-js", lang="")
       .topbody
         a.title SMDA
         ul.toplist
-          li(id='1')
-            a.name 未来趋势
           li(id='2')
+            a.name 未来趋势
+          li(id='1')
             a.name 历史数据
 
         ul(class=["nav","navbar-nav","navbar-right","user-nav"])
@@ -41,13 +41,12 @@ html(class="no-js", lang="")
                 a 联系我们
               li
                 a 退出登录
-
+    ul.nav_tabs#ul1
+      li(id='tag1',class='normal') 销售趋势
+      li(id='tag2',class='normal') 类目趋势
+      li(id='tag3',class='normal') 类目分布
+      li(id='tag4',class='active') 品牌分布
     div(class='container1',id='container1')(style='display:inline-block')
-      ul.nav_tabs
-        li(id='tag1',class='normal') 销售趋势
-        li(id='tag2',class='normal') 类目趋势
-        li(id='tag3',class='normal') 类目分布
-        li(id='tag4',class='active') 品牌分布
       div(class=['contain_group4'])(style='display:inline-block')
         div(class='canvas_contain col-lg-10',id='barCanvas')
           .contain_title
@@ -60,11 +59,11 @@ html(class="no-js", lang="")
               option(value="2012") 2015
               option(value="2012") 2016
           #myBarChart
-        div(class='canvas_contain2 col-lg-10',id='Dchart')
+        div(class='canvas_contain col-lg-10',id='Dchart')
           .contain_title
             span 品牌占比情况
           #svg_contain.col-lg-10
-        div(class='table_contain2 col-lg-10',id='brand_table')
+        div(class='canvas_contain col-lg-10',id='brand_table')
           .row
             .col-md-12
               .block-flat
@@ -105,8 +104,8 @@ html(class="no-js", lang="")
               option(value="2012") 2014
               option(value="2012") 2015
               option(value="2012") 2016
-          div(id='main' style='width: 800px;height:400px;')
-        div(class='canvas_contain2 col-lg-10',id='PieCanvas')
+          div(id='main' style='width: 700px;height:400px;')
+        div(class='canvas_contain col-lg-10',id='PieCanvas')
           .contain_title
             span 类目占比情况
           .twoChart
@@ -144,11 +143,11 @@ html(class="no-js", lang="")
                               td Win 95+</td>
       div(class=['contain_group2'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='categoryTendency')
-          div(id='container',style='min-width:400px;height:400px')
+          div(id='container')
       div(class=['contain_group1'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='fristCanvas')
           #container111.col-lg-7
-        div(class='table_contain2 col-lg-10',id='sales_table')
+        div(class='canvas_contain col-lg-10',id='sales_table')
           .row
             .col-md-12
               .block-flat
@@ -181,7 +180,7 @@ html(class="no-js", lang="")
 
 
 
-    div(class='container1',id='container2')
+    div(class='container2',id='container2')
       .contain_block1
         .contain_map
           div(id="scattermap",style="height:400px")
