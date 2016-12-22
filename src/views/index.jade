@@ -218,7 +218,14 @@ html(class="no-js", lang="")
 
       div(class=['contain_group1'])(style='display:none')
         div(class='canvas_contain col-lg-10',id='fristCanvas')
-          #container111.col-lg-7
+          .contain_title
+            span 一年之中产品销售变化趋势
+          label#yearSelect4.yearSelect
+            select#yearselection4.selection
+              each itemy4 in year
+                option(value=itemy4) #{itemy4}
+          #submit4.submitBtn 生成
+          div(class='canvas_contain col-lg-6',id='container111')
         div(class='canvas_contain col-lg-10',id='sales_table')(style='display:none')
           .row
             .col-md-12
