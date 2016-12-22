@@ -191,7 +191,24 @@ if (option && typeof option === "object") {
           console.log("rank_value"+i);
           document.getElementById("rank_value"+(i+1)).value=data[i].sale_amount;
           document.getElementById("rank_name"+(i+1)).innerHTML=data[i].category;
+          document.getElementById("rank_num"+(i+1)).innerHTML=data[i].sale_amount+"%";
         //  $("#skills").append(" <progress value='"+data[i].sale_amount+"' max='100'><span>"+data[i].category+"</span></progress>");
+
+
+          console.log(data[i].weather);
+          if(data[i].weather=="小雨")
+            document.getElementById("skychoose").id="widget2_3";
+          switch(data[i].weather){
+            case '风':document.getElementById("skychoose").id='widget1_1';break;
+            case '多云':document.getElementById("skychoose").id='widget1_2';break;
+            case '大雨':document.getElementById("skychoose").id='widget1_3';break;
+            case '晴天':document.getElementById("skychoose").id='widget1_4';break;
+            case '下雪':document.getElementById("skychoose").id='widget2_1';break;
+            case '阴天':document.getElementById("skychoose").id='widget2_2';break;
+            case '小雨':document.getElementById("skychoose").id='widget2_3';break;
+            default:document.getElementById("skychoose").id='widget1_4';
+          }
+
         }
 
       },
