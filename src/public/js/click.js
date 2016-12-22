@@ -305,7 +305,7 @@ $(document).ready(function() {
     month = month.substring(0, month.length -1);
     $.ajax({
       type: "GET",
-      url: "http://10.60.36.3/smda/?r=brand-dist/do",
+      url: "http://10.60.36.3/smda/?r=cate-dist/do",
       dataType: 'jsonp',
       async: true,
       jsonp: "callback",
@@ -320,7 +320,7 @@ $(document).ready(function() {
         d3.select('#main').selectAll('*').remove();
         for(var i = 0; i<data.length-1; i++){
           multiname.push(data[i].name);
-          multiBar.push(data[i]);
+          multiBar.push((data[i]));
         }
         multiBar.push(data[data.length-1]);
         drawMutiChart();
@@ -331,7 +331,7 @@ $(document).ready(function() {
     });
     $.ajax({
       type: "GET",
-      url: "http://10.60.36.3/smda/?r=brand-dist/do",
+      url: "http://10.60.36.3/smda/?r=cate-dist/do",
       dataType: 'jsonp',
       async: true,
       jsonp: "callback",
@@ -345,7 +345,7 @@ $(document).ready(function() {
         multiLabels = [];
         totalamount = [];
         d3.select('#tbody3').selectAll('*').remove();
-        d3.select('#PieCanvas').selectAll('*').remove();
+        d3.select('#myPieChart').selectAll('*').remove();
         for(var i = 0; i<data.length-1; i++){
           multiLabels.push(data[i].category);
           totalamount.push(data[i].sale_amount);
@@ -365,7 +365,7 @@ $(document).ready(function() {
     month = month.substring(0, month.length -1);
     $.ajax({
       type: "GET",
-      url: "http://10.60.36.3/smda/?r=brand-dist/do",
+      url: "http://10.60.36.3/smda/?r=cate-trend/do",
       dataType: 'jsonp',
       async: true,
       jsonp: "callback",
