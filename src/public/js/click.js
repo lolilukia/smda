@@ -1,5 +1,10 @@
 lastClick = 'tag4';
 currentClick = 'tag4';
+lastClick2 = '1';
+currentClick2 = '1';
+lastnum=0;
+chartnum=3;
+chartname = ['barCanvas', 'Dchart', 'brand_table'];
 svgChart = [
   {symbol:"清风",date:"Jan 2013",price:"3192217"},
   {symbol:"清风",date:"Feb 2013",price:"2061263"},
@@ -112,17 +117,19 @@ trendData = [{
   name: '室内除臭/芳香用品',
   data: [0.0256,0.025,0.0296,0.0309,0.034,0.0392,0.0384,0.0347,0.0355,0.029,0.0272,0.027]
 }];
-lastClick2 = '1';
-currentClick2 = '1';
-lastnum=0;
-chartnum=3;
-chartname = ['barCanvas', 'Dchart', 'brand_table'];
+
 $(document).ready(function() {
+
   drawBarChart();
+
   drawDynamic();
+
   drawMutiChart();
+
   drawPieChart();
+
   drawPercentagePile();
+
   var width = document.body.clientWidth;
   var height = document.body.clientHeight;
   $('#myBarChart').css('width', width/1.65 + 'px');
@@ -299,7 +306,7 @@ $(document).ready(function() {
     month = month.substring(0, month.length -1);
     $.ajax({
       type: "GET",
-      url: "http://10.60.36.3/smda/?r=brand-dist/do",
+      url: "http://10.60.36.3/smda/?r=cate-dist/do",
       dataType: 'jsonp',
       async: true,
       jsonp: "callback",
@@ -314,7 +321,7 @@ $(document).ready(function() {
         d3.select('#main').selectAll('*').remove();
         for(var i = 0; i<data.length-1; i++){
           multiname.push(data[i].name);
-          multiBar.push(data[i]);
+          multiBar.push((data[i]));
         }
         multiBar.push(data[data.length-1]);
         drawMutiChart();
@@ -325,7 +332,7 @@ $(document).ready(function() {
     });
     $.ajax({
       type: "GET",
-      url: "http://10.60.36.3/smda/?r=brand-dist/do",
+      url: "http://10.60.36.3/smda/?r=cate-dist/do",
       dataType: 'jsonp',
       async: true,
       jsonp: "callback",
@@ -339,7 +346,7 @@ $(document).ready(function() {
         multiLabels = [];
         totalamount = [];
         d3.select('#tbody3').selectAll('*').remove();
-        d3.select('#PieCanvas').selectAll('*').remove();
+        d3.select('#myPieChart').selectAll('*').remove();
         for(var i = 0; i<data.length-1; i++){
           multiLabels.push(data[i].category);
           totalamount.push(data[i].sale_amount);
@@ -359,7 +366,7 @@ $(document).ready(function() {
     month = month.substring(0, month.length -1);
     $.ajax({
       type: "GET",
-      url: "http://10.60.36.3/smda/?r=brand-dist/do",
+      url: "http://10.60.36.3/smda/?r=cate-trend/do",
       dataType: 'jsonp',
       async: true,
       jsonp: "callback",
