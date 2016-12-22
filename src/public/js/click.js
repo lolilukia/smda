@@ -1,23 +1,24 @@
 lastClick = 'tag4';
 currentClick = 'tag4';
 svgChart = [
-  {symbol:"MSFT",date:"Jan 2000",price:"39.81"},
-  {symbol:"MSFT",date:"Feb 2000",price:"36.35"},
-  {symbol:"MSFT",date:"Mar 2000",price:"43.22"},
-  {symbol:"AMZN",date:"Jan 2000",price:"64.56"},
-  {symbol:"AMZN",date:"Feb 2000",price:"68.87"},
-  {symbol:"AMZN",date:"Mar 2000",price:"67"},
-  {symbol:"IBM",date:"Jan 2000",price:"100.52"},
-  {symbol:"IBM",date:"Feb 2000",price:"92.11"},
-  {symbol:"IBM",date:"Mar 2000",price:"106.11"},
-  {symbol:"AAPL",date:"Jan 2000",price:"76.47"},
-  {symbol:"AAPL",date:"Feb 2000",price:"25.94"},
-  {symbol:"AAPL",date:"Mar 2000",price:"28.66"}
+  {symbol:"清风",date:"Jan 2013",price:"3192217"},
+  {symbol:"清风",date:"Feb 2013",price:"2061263"},
+  {symbol:"清风",date:"Mar 2013",price:"3670782"},
+  {symbol:"海飞丝",date:"Jan 2013",price:"2504635"},
+  {symbol:"海飞丝",date:"Feb 2013",price:"1631022"},
+  {symbol:"海飞丝",date:"Mar 2013",price:"3029763"},
+  {symbol:"威露士",date:"Jan 2013",price:"1104268"},
+  {symbol:"威露士",date:"Feb 2013",price:"801501"},
+  {symbol:"威露士",date:"Mar 2013",price:"1233892"},
+  {symbol:"心相印",date:"Jan 2013",price:"1739776"},
+  {symbol:"心相印",date:"Feb 2013",price:"1310315"},
+  {symbol:"心相印",date:"Mar 2013",price:"1989185"}
 ];
-categories = ['vinda','walch','clear','space7','may flower','拉芳','沙宣','立白','蓝月亮','清风','心相印','海飞丝'];
-sale_amount = [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4];
-temperature = [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6];
-percentage = [22.0, 18.0, 17.0, 8.0, 3.5, 3.0, 3.0, 2.0, 2.0,2.0, 1.5, 0.5];
+categories = ['安利','清风','足季','海飞丝','沙宣','草木香','潘婷','心相印','abc','云南白药','兽皮大王','shiseido/资生堂'];
+sale_amount = [3458099,3192217,2596668,2504635,2121799,1966937,1780941,1739776,1680288,1639935,1555026,1526548];
+temperature = [-5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2];
+percentage = [3.58, 3.31, 2.69, 2.6, 2.2, 2.04, 1.85, 1.8, 1.74, 1.7, 1.61, 1.58];
+
 multiname = ['洗发沐浴/个人清洁','纸品/湿巾','衣物清洁剂/护理剂','卫生巾/护垫/成人尿裤','家庭环境清洁剂', '室内除臭/芳香用品','家私/皮具护理品','香熏用品','驱虫用品','其他'];
 multiBar = [
   {

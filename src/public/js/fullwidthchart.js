@@ -31,6 +31,7 @@ $(function () {
         }
       },
       labels: {
+        format: '{value}件',
         style: {
           color: Highcharts.getOptions().colors[0]
         }
@@ -55,7 +56,7 @@ $(function () {
       yAxis: 1,
       data: [49.9, 71.5, 106.4, 129.2, 176.0, 226.0, 285.6, 248.5, 266.4, 194.1, 95.6, 54.4],
       tooltip: {
-        valueSuffix: ' 千万件'
+        valueSuffix: ' 件'
       }
 
     }, {

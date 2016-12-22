@@ -34,7 +34,7 @@ function drawBarChart() {
         }
       },
       labels: {
-        format: '{value}千万元',
+        format: '{value}元',
         style: {
           color: Highcharts.getOptions().colors[0]
         }
@@ -59,7 +59,7 @@ function drawBarChart() {
       yAxis: 1,
       data: sale_amount,
       tooltip: {
-        valueSuffix: ' 千万元'
+        valueSuffix: ' 元'
       }
 
     }, {
