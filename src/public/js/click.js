@@ -267,11 +267,17 @@ $(document).ready(function() {
       currentClick2 = string;
 
       $('#container'+lastClick2).css('display','none');
-      $('#container'+currentClick2).css('display','inline-block');
-      if(lastClick2=="1")
-        $('#ul1').css('display','none');
-      else
-        $('#ul1').css('display','inline-block');
+      $('#container'+currentClick2).css('display','block');
+      if(lastClick2=="1") {
+        $('#ul1').css('display', 'none');
+        $('#last').css('display', 'none');
+        $('#next').css('display', 'none');
+      }
+      else {
+        $('#ul1').css('display', 'inline-block');
+        $('#last').css('display', 'inline-block');
+        $('#next').css('display', 'inline-block');
+      }
       lastClick2 = currentClick2;
       console.log(currentClick2);
     }

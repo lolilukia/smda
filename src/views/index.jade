@@ -58,12 +58,13 @@ html(class="no-js", lang="")
         div(class='canvas_contain col-lg-10',id='barCanvas')
           .contain_title
             span 品牌销售额
-          -var year = ['2013','2014','2015']
+          -var year = ['2012','2013','2014','2015']
           -var month = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
           label#yearSelect.yearSelect
             select#yearselection.selection
               each itemy in year
                 option(value=itemy) #{itemy}
+              option(selected="selected") 2016
           label#monthSelect.yearSelect
             select#monthselection.selection
               each itemm in month
@@ -103,6 +104,7 @@ html(class="no-js", lang="")
             select#yearselection2.selection
               each itemy2 in year
                 option(value=itemy2) #{itemy2}
+              option(selected="selected") 2016
           label#monthSelect2.yearSelect
             select#monthselection2.selection
               each itemm2 in month
@@ -182,6 +184,7 @@ html(class="no-js", lang="")
             select#yearselection3.selection
               each itemy3 in year
                 option(value=itemy3) #{itemy3}
+              option(selected="selected") 2016
           #submit3.submitBtn 生成
           div(id='container')
         div(class='canvas_contain col-lg-10',id='cbrand_table')(style='display:none')
@@ -220,6 +223,7 @@ html(class="no-js", lang="")
             select#yearselection4.selection
               each itemy4 in year
                 option(value=itemy4) #{itemy4}
+              option(selected="selected") 2016
           label#monthSelect4.yearSelect
             select#monthselection4.selection
               each itemm4 in month
@@ -273,45 +277,49 @@ html(class="no-js", lang="")
         .contain_weather
           .row
             div(class=['col-md-3', 'col-sm-6'])
-              div(class=['fd-tile', 'tile-green', 'weather'])
-                canvas(id="skychoose",width="100",height="100")
+              div(class=['fd-tile', 'tile-green', 'weather'],id='sky')
+                canvas#skychoose(width="100",height="100")
                 h2#wcity 上海
                 h1#wvalue 9.5°C
       .contain_block2
         .contain_rank
           div(class=['col-md-6','left-about']) <!-- 外框，图表框宽度暂且设定的是90%，具体看效果再调 -->
             .sales_ranking1
-              h4 Rinking
+              h4 预测销售额排行
               #skills
                 progress(value="100" max="100" id='rank_value1')
                 span#rank_name1 1.HTML/HTML5
+                p#rank_num1
                 progress(value="85" max="100" id='rank_value2')
                 span#rank_name2 2.CSS/CSS3
+                p#rank_num2
                 progress(value="75" max="100" id='rank_value3')
                 span#rank_name3 3.Photoshop / IlLustrator
+                p#rank_num3
                 progress(value="65" max="100" id='rank_value4')
                 span#rank_name4 4.Photoshop / IlLustrator
+                p#rank_num4
                 progress(value="52" max="100" id='rank_value5')
                 span#rank_name5 5.HTML/HTML5
+                p#rank_num5
                 progress(value="44" max="100" id='rank_value6')
                 span#rank_name6 6.HTML/HTML5
+                p#rank_num6
                 progress(value="33" max="100" id='rank_value7')
                 span#rank_name7 7.HTML/HTML5
+                p#rank_num7
                 progress(value="22" max="100" id='rank_value8')
                 span#rank_name8 8.HTML/HTML5
+                p#rank_num8
                 progress(value="20" max="100" id='rank_value9')
                 span#rank_name9 9.HTML/HTML5
+                p#rank_num9
 
   script(src="js/choose.js")
   script(src="lib/timejquery.js")
   script(src="js/index.js")
   script(src="lib/echarts-all-3.js")
   script(src="lib/dataTool.min.js")
-  script(src="lib/china.js")
-  script(src="lib/world.js")
-  script(src="lib/api")
-  script(src="lib/bmap.min.js")
-  script(src="js/ScatterMap.js")
   script(src="lib/bootstrap.min.js")
   script(src="js/pieChart.js")
   script(src="lib/echarts.min.js")
@@ -339,13 +347,6 @@ html(class="no-js", lang="")
   script(src="js/choose.js")
   script(src="lib/timejquery.js")
   script(src="js/index.js")
-  script(src="lib/echarts-all-3.js")
-  script(src="lib/dataTool.min.js")
-  script(src="lib/china.js")
-  script(src="lib/world.js")
-  script(src="lib/api")
-  script(src="lib/bmap.min.js")
-  script(src="js/ScatterMap.js")
   script(src="lib/bootstrap.min.js")
   script(src="js/pieChart.js")
   script(src="lib/echarts.min.js")
@@ -370,6 +371,13 @@ html(class="no-js", lang="")
   script(src="lib/jquery.gritter.js")
   script(src="lib/core.js")
   script(src="lib/skycons.js")
+  script(src="lib/echarts-all-3.js")
+  script(src="lib/dataTool.min.js")
+  script(src="lib/china.js")
+  script(src="lib/world.js")
+  script(src="lib/api")
+  script(src="lib/bmap.min.js")
+  script(src="js/ScatterMap.js")
 
 
 

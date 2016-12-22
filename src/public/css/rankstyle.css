@@ -16,6 +16,15 @@
   font-weight: 400;
 
 }
+#skills p {
+  top: -30px;
+  left: 20px;
+  position: relative;
+  font-size: 1.2em;
+  color: #fff;
+  font-weight: 400;
+
+}
 /*****图表框高度，宽度*******/
 progress {
   background-color: #f1f1f1;

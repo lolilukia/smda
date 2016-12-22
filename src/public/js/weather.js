@@ -3,18 +3,6 @@
  */
 $(document).ready(function(){
 
-  var skycons = new Skycons({"color": "#FFFFFF"});
-  skycons.add("widget1_1", Skycons.WIND);//风
-  skycons.add("widget1_2", Skycons.PARTLY_CLOUDY_DAY);//多云
-  skycons.add("widget1_3", Skycons.SLEET);//大雨
-  skycons.add("widget1_4", Skycons.CLEAR_DAY);//晴天
-  skycons.add("widget2_1", Skycons.SNOW);//下雪
-  skycons.add("widget2_2", Skycons.CLOUDY);//阴天
-  skycons.add("widget2_3", Skycons.RAIN);//小雨
-  skycons.add("widget2_4", Skycons.FOG);//大雾
-
-
-  skycons.play();
 
 
   $('.image-zoom').magnificPopup({
@@ -47,7 +35,7 @@ $(document).ready(function(){
 });
 
 
-var theCanvas = document.getElementById("skychoose");
-//根据获取天气情况，设置不同的天气skyid
-//此处需要增加条件判断
-theCanvas.id="widget1_4";
+var skycons = new Skycons({"color": "#FFFFFF"});
+skycons.add("skychoose", Skycons.CLEAR_DAY);
+
+skycons.play();
