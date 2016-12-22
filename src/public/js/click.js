@@ -24,6 +24,11 @@ sale_amount = [3458099,3192217,2596668,2504635,2121799,1966937,1780941,1739776,1
 temperature = [-5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2, -5.2];
 percentage = [3.58, 3.31, 2.69, 2.6, 2.2, 2.04, 1.85, 1.8, 1.74, 1.7, 1.61, 1.58];
 
+catetend=['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+month_sales=[49.9, 71.5, 106.4, 129.2, 176.0, 226.0, 285.6, 248.5, 266.4, 194.1, 95.6, 54.4];
+temperaturetend=[7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6];
+
+
 multiname = ['洗发沐浴/个人清洁','纸品/湿巾','衣物清洁剂/护理剂','卫生巾/护垫/成人尿裤','家庭环境清洁剂', '室内除臭/芳香用品','家私/皮具护理品','香熏用品','驱虫用品','其他'];
 multiBar = [
   {
@@ -129,7 +134,7 @@ $(document).ready(function() {
   drawPieChart();
 
   drawPercentagePile();
-
+  drawfullchart();
   var width = document.body.clientWidth;
   var height = document.body.clientHeight;
   $('#myBarChart').css('width', width/1.65 + 'px');
@@ -227,6 +232,7 @@ $(document).ready(function() {
         console.log(e);
       }
     });
+
     $.ajax({
       type: "GET",
       url: "http://10.60.36.3/smda/?r=brand-dist/do",
@@ -395,5 +401,46 @@ $(document).ready(function() {
         console.log(e);
       }
     });
+  });
+  $('#submit4').click(function(){
+    var year = $('#yearSelect4').children('select').val();
+    var month = $('#monthSelect4').children('select').val();
+    month = month.substring(0, month.length -1);
+    function showData(o){
+      console.log(o);
+    };
+    $.ajax({
+      type: "GET",
+      url: "http://10.60.36.3/smda/?r=sale-trend/do",
+      dataType: 'jsonp',
+      async: true,
+      jsonp: "callback",
+      jsonpCallback: "showData",
+      data: {
+        type: 'month_sales',
+        year: year,
+        month: month
+      },
+      success: function(data){
+        catetend = [];
+        month_sales = [];
+        temperaturetend = [];
+        month_percentage = [];
+        d3.select('#tbody1').selectAll('*').remove();
+        for(var i = 0; i<12; i++){
+          catetend.push(data[i].month);
+          month_sales.push(data[i].month_sales);
+          temperaturetend.push(data[i].temperature);
+          month_percentage.push(data[i].month_percentage);
+          $("#datatable1").children('tbody').append(" <tr class='odd, gradeX'><td>"+data[i].month+"</td><td>"+data[i].month_sales+"</td><td>"+(data[i].month_percentage*100+'').substring(0,4)+"%</td></tr>");
+        }
+        d3.select('#container111').selectAll('*').remove();
+        drawfullchart();
+      },
+      error: function(e){
+        console.log(e);
+      }
+    });
+
   });
 });

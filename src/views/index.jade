@@ -224,6 +224,10 @@ html(class="no-js", lang="")
             select#yearselection4.selection
               each itemy4 in year
                 option(value=itemy4) #{itemy4}
+          label#monthSelect4.yearSelect
+            select#monthselection4.selection
+              each itemm4 in month
+                option(value=itemm4) #{itemm4}
           #submit4.submitBtn 生成
           div(class='canvas_contain col-lg-6',id='container111')
         div(class='canvas_contain col-lg-10',id='sales_table')(style='display:none')
@@ -241,7 +245,7 @@ html(class="no-js", lang="")
                           th 月份
                           th 销售额
                           th 占比
-                      tbody
+                      tbody#tbody1
                         tr(class=["odd", "gradeX"])
                           td Trident
                           td Internet Explorer 4.1
