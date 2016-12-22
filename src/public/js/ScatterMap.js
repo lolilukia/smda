@@ -171,6 +171,34 @@ if (option && typeof option === "object") {
     console.log(params.name);
     document.getElementById("wcity").innerHTML=params.name;
     document.getElementById("wvalue").innerHTML=params.value[2]+"℃";
+    $.ajax({
+      type: "GET",
+      url: "http://10.60.36.13:8009/smda/?r=cate-rank/do",
+      dataType: 'jsonp',
+      async: true,
+      contentType: "application/x-www-form-urlencoded; charset=utf-8",
+      jsonp: "callback",
+      jsonpCallback: "showdata",
+      data: {
+        type:'cate_rank',
+        city:params.name,
+        callback:'showdata'
+      },
+      success: function(data){
+
+       //d3.select('#skills').selectAll('*').remove();
+        for(var i = 0; i<9; i++){
+          console.log("rank_value"+i);
+          document.getElementById("rank_value"+(i+1)).value=data[i].sale_amount;
+          document.getElementById("rank_name"+(i+1)).innerHTML=data[i].category;
+        //  $("#skills").append(" <progress value='"+data[i].sale_amount+"' max='100'><span>"+data[i].category+"</span></progress>");
+        }
+
+      },
+      error: function(e){
+        console.log(e);
+      }
+    });
   });
 
 }
