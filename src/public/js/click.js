@@ -368,8 +368,7 @@ $(document).ready(function() {
   $('#submit3').click(function(){
     console.log('select year');
     var year = $('#yearSelect3').children('select').val();
-    var month = $('#monthSelect3').children('select').val();
-    month = month.substring(0, month.length -1);
+
     $.ajax({
       type: "GET",
       url: "http://10.60.36.3/smda/?r=cate-trend/do",
@@ -388,12 +387,12 @@ $(document).ready(function() {
         for(var i = 0; i<data.length-1; i++){
           trendData.push(data[i]);
           $("#datatable2").children('tbody').append(" <tr class='odd, gradeX'><td>"+data[i].name+"</td><td>"
-            +data[i].data[0]*100+''.substring(0,4)+"%</td><td>"+data[i].data[1]*100+''.substring(0,4)+"%</td><td>" +
-            +data[i].data[2]*100+''.substring(0,4)+"%</td><td>"+data[i].data[3]*100+''.substring(0,4)+"%</td><td>" +
-            +data[i].data[4]*100+''.substring(0,4)+"%</td><td>"+data[i].data[5]*100+''.substring(0,4)+"%</td><td>" +
-            +data[i].data[6]*100+''.substring(0,4)+"%</td><td>"+data[i].data[7]*100+''.substring(0,4)+"%</td><td>" +
-            +data[i].data[8]*100+''.substring(0,4)+"%</td><td>"+data[i].data[9]*100+''.substring(0,4)+"%</td><td>" +
-            +data[i].data[10]*100+''.substring(0,4)+"%</td><td>"+data[i].data[11]*100+''.substring(0,4)+"%</td></tr>");
+            +(data[i].data[0]*100+'').substring(0,4)+"%</td><td>"+(data[i].data[1]*100+'').substring(0,4)+"%</td><td>" +
+            +(data[i].data[2]*100+'').substring(0,4)+"%</td><td>"+(data[i].data[3]*100+'').substring(0,4)+"%</td><td>" +
+            +(data[i].data[4]*100+'').substring(0,4)+"%</td><td>"+(data[i].data[5]*100+'').substring(0,4)+"%</td><td>" +
+            +(data[i].data[6]*100+'').substring(0,4)+"%</td><td>"+(data[i].data[7]*100+'').substring(0,4)+"%</td><td>" +
+            +(data[i].data[8]*100+'').substring(0,4)+"%</td><td>"+(data[i].data[9]*100+'').substring(0,4)+"%</td><td>" +
+            +(data[i].data[10]*100+'').substring(0,4)+"%</td><td>"+(data[i].data[11]*100+'').substring(0,4)+"%</td></tr>");
         }
         drawPercentagePile();
       },

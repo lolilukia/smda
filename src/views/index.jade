@@ -182,10 +182,6 @@ html(class="no-js", lang="")
             select#yearselection3.selection
               each itemy3 in year
                 option(value=itemy3) #{itemy3}
-          label#monthSelect3.yearSelect
-            select#monthselection3.selection
-              each itemm3 in month
-                option(value=itemm3) #{itemm3}
           #submit3.submitBtn 生成
           div(id='container')
         div(class='canvas_contain col-lg-10',id='cbrand_table')(style='display:none')
@@ -287,24 +283,24 @@ html(class="no-js", lang="")
             .sales_ranking1
               h4 Rinking
               #skills
-                progress(value="100" max="100")
-                span 1.HTML/HTML5
-                progress(value="85" max="100")
-                span 2.CSS/CSS3
-                progress(value="75" max="100")
-                span 3.Photoshop / IlLustrator
-                progress(value="65" max="100")
-                span 4.Photoshop / IlLustrator
-                progress(value="52" max="100")
-                span 5.HTML/HTML5
-                progress(value="44" max="100")
-                span 6.HTML/HTML5
-                progress(value="33" max="100")
-                span 7.HTML/HTML5
-                progress(value="22" max="100")
-                span 8.HTML/HTML5
-                progress(value="20" max="100")
-                span 9.HTML/HTML5
+                progress(value="100" max="100" id='rank_value1')
+                span#rank_name1 1.HTML/HTML5
+                progress(value="85" max="100" id='rank_value2')
+                span#rank_name2 2.CSS/CSS3
+                progress(value="75" max="100" id='rank_value3')
+                span#rank_name3 3.Photoshop / IlLustrator
+                progress(value="65" max="100" id='rank_value4')
+                span#rank_name4 4.Photoshop / IlLustrator
+                progress(value="52" max="100" id='rank_value5')
+                span#rank_name5 5.HTML/HTML5
+                progress(value="44" max="100" id='rank_value6')
+                span#rank_name6 6.HTML/HTML5
+                progress(value="33" max="100" id='rank_value7')
+                span#rank_name7 7.HTML/HTML5
+                progress(value="22" max="100" id='rank_value8')
+                span#rank_name8 8.HTML/HTML5
+                progress(value="20" max="100" id='rank_value9')
+                span#rank_name9 9.HTML/HTML5
 
   script(src="js/choose.js")
   script(src="lib/timejquery.js")
