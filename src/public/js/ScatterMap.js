@@ -1,6 +1,8 @@
 /**
  * Created by Lele on 2016/12/20.
  */
+lastskyid="widget1_4";
+currentskyid="widget1_4";
 var dom = document.getElementById("scattermap");
 var myChart = echarts.init(dom);
 var app = {};
@@ -194,23 +196,50 @@ if (option && typeof option === "object") {
           document.getElementById("rank_num"+(i+1)).innerHTML=data[i].sale_amount+"%";
         //  $("#skills").append(" <progress value='"+data[i].sale_amount+"' max='100'><span>"+data[i].category+"</span></progress>");
 
-
-          console.log(data[i].weather);
-          if(data[i].weather=="小雨")
-            document.getElementById("skychoose").id="widget2_3";
-          switch(data[i].weather){
-            case '风':document.getElementById("skychoose").id='widget1_1';break;
-            case '多云':document.getElementById("skychoose").id='widget1_2';break;
-            case '大雨':document.getElementById("skychoose").id='widget1_3';break;
-            case '晴天':document.getElementById("skychoose").id='widget1_4';break;
-            case '下雪':document.getElementById("skychoose").id='widget2_1';break;
-            case '阴天':document.getElementById("skychoose").id='widget2_2';break;
-            case '小雨':document.getElementById("skychoose").id='widget2_3';break;
-            default:document.getElementById("skychoose").id='widget1_4';
-          }
-
         }
 
+        var sky;
+        switch(data[0].weather){
+          case '风':{
+           sky=Skycons.WIND;
+            break;
+          }
+          case '多云':{
+            sky=Skycons.PARTLY_CLOUDY_DAY;
+            break;
+          }
+          case '大雨':{
+            sky=Skycons.SLEET;
+            break;
+          }
+          case '晴天':{
+            sky=Skycons.CLEAR_DAY;
+            break;
+          }
+          case '下雪':{
+            sky=Skycons.SNOW;
+            break;
+          }
+          case '阴天':{
+            sky=Skycons.CLOUDY;
+            break;
+          }
+          case '小雨':{
+            sky=Skycons.RAIN;
+            break;
+          }
+          case '大雾':{
+            sky=Skycons.FOG;
+            break;
+          }
+          default:{
+            sky=Skycons.CLEAR_DAY;
+          }
+        }
+        var skycons = new Skycons({"color": "#FFFFFF"});
+        skycons.add("skychoose", sky);
+
+        skycons.play();
       },
       error: function(e){
         console.log(e);
