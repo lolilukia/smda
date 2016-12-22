@@ -31,8 +31,8 @@ function drawMutiChart() {
         type: 'value',
         name: '销售额',
         min: 0,
-        max: 17,
-        interval: 2.5,
+        max: 170,
+        interval: 30,
         axisLabel: {
           formatter: '{value} 亿元'
         }
