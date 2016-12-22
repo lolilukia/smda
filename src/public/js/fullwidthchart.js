@@ -31,7 +31,7 @@ function drawfullchart() {
         }
       },
       labels: {
-        format: '{value}件',
+        format: '{value}元',
         style: {
           color: Highcharts.getOptions().colors[0]
         }

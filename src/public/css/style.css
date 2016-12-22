@@ -234,13 +234,13 @@ body{
 
 }
 .contain_block1{
-  margin: 2% 10% 2% 15%;
+  margin: 2% 10% 2% 10%;
   width: 80%;
   height: 500px;
   background-color: white;
 }
 .contain_block2{
-  margin: 2% 10% 10% 15%;
+  margin: 2% 10% 10% 10%;
   width: 80%;
   height: auto;
   min-height: 500px;

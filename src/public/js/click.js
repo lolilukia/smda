@@ -266,14 +266,19 @@ $(document).ready(function() {
     else{
       currentClick2 = string;
 
-      $('#container'+lastClick2).css('display','none');
-      $('#container'+currentClick2).css('display','block');
+
+
       if(lastClick2=="1") {
+        $('#container'+lastClick2).css('display','none');
+        $('#container'+currentClick2).css('display','block');
         $('#ul1').css('display', 'none');
         $('#last').css('display', 'none');
         $('#next').css('display', 'none');
+
       }
       else {
+        $('#container'+lastClick2).css('display','none');
+        $('#container'+currentClick2).css('display','inline-block');
         $('#ul1').css('display', 'inline-block');
         $('#last').css('display', 'inline-block');
         $('#next').css('display', 'inline-block');
