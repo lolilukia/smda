@@ -29,7 +29,7 @@ function drawMutiChart() {
     yAxis: [
       {
         type: 'value',
-        name: '销售额',
+        name: '',
         min: 0,
         max: 170,
         interval: 30,
